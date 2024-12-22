@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes, NavLink } from 'react-router-dom';
 import { FaTachometerAlt, FaProjectDiagram, FaBullseye } from 'react-icons/fa';
 import HomeIcon from '../src/assets/Logo.png';
-import TextLogo from '../src/assets/OrbitLogo.png'
+import TextLogo from '../src/assets/NewLogo.png'
 import Home from './pages/Home';
 import Features from './pages/Features';
 import Pricing from './pages/Pricing';
@@ -17,7 +17,7 @@ import Team from './pages/Team';
 import GiveFeedback from './pages/GiveFeedback';
 
 const LandingNav = () => (
-  <nav className="bg-blue-500 p-6 fixed top-0 left-0 w-full z-50">
+  <nav className="bg-blue-500 p-6 fixed top-0 left-0 w-full z-50 shadow-xl">
     <div className="flex items-center">
       <ul className="flex space-x-4">
         <li>
@@ -28,8 +28,7 @@ const LandingNav = () => (
               color: isActive ? 'green' : 'white',
             })}
           >
-            <img src={TextLogo} alt="Home" className="w-48 h-8 inline-block object-cover" />
-
+            <img src={TextLogo} alt="Home" className="w-20 h-6 inline-block object-cover" />
           </NavLink>
         </li>
         <li>
@@ -85,9 +84,9 @@ const LandingNav = () => (
 
 const AppLayout = ({ children }) => (
   <div className="flex flex-col h-screen">
-    <nav className="bg-blue-500 p-4">
+    <nav className="bg-blue-500 p-4 shadow-lg">
       <div className="flex items-center">
-      <img src={TextLogo} alt="Home" className="w-48 h-8 inline-block object-cover" />
+      <img src={TextLogo} alt="Home" className="w-20 h-6 inline-block object-cover" />
         <ul className="ml-auto flex space-x-4">
           <li>
             <NavLink
@@ -137,13 +136,13 @@ const AppLayout = ({ children }) => (
       </div>
     </nav>
     <div className="flex flex-1">
-      <div className="bg-white w-52 p-6 text-black border border-r-gray-300">
+      <div className="bg-white w-52 p-6 text-black shadow-lg">
         <ul>
           <li className="mb-4 flex items-center space-x-2">
-            <FaTachometerAlt className="text-black"/>
+            <FaTachometerAlt className="text-black" />
             <NavLink
               to="/dashboard"
-              className="hover:text-gray-50 font-sans text-base"
+              className="hover:text-gray-50"
               style={({ isActive }) => ({
                 color: isActive ? 'red' : 'black',
               })}
@@ -155,7 +154,7 @@ const AppLayout = ({ children }) => (
             <FaProjectDiagram className="text-black" />
             <NavLink
               to="/project-update"
-              className="hover:text-gray-50 font-sans text-base"
+              className="hover:text-gray-50"
               style={({ isActive }) => ({
                 color: isActive ? 'red' : 'black',
               })}
@@ -167,7 +166,7 @@ const AppLayout = ({ children }) => (
             <FaBullseye className="text-black" />
             <NavLink
               to="/goal-update"
-              className="hover:text-gray-50 font-sans text-base"
+              className="hover:text-gray-50"
               style={({ isActive }) => ({
                 color: isActive ? 'red' : 'black',
               })}
