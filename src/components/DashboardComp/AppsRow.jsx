@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import AppRowCards from './AppRowCards';
 
 const AppsRow = () => {
   return (
-    <div>AppsRow</div>
-  )
-}
+    <div className="h-60 w-full">
+      <AppRowCards/>
+    </div>
+  );
+};
 
-export default AppsRow
+export default AppsRow;

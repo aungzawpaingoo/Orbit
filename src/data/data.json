@@ -1,0 +1,51 @@
+{
+    "Working On": [
+      {
+        "id": 1,
+        "type": "feature",
+        "task": "Bug Fixing",
+        "assignedDate": "2024-12-20",
+        "assignedPersonPhoto": "https://via.placeholder.com/40"
+      },
+      {
+        "id": 2,
+        "type": "userstory",
+        "task": "Code Review",
+        "assignedDate": "2024-12-18",
+        "assignedPersonPhoto": "https://via.placeholder.com/40"
+      }
+    ],
+    "Assigned To Me": [
+      {
+        "id": 3,
+        "type": "feature",
+        "task": "UI Updates",
+        "assignedDate": "2024-12-22",
+        "assignedPersonPhoto": "https://via.placeholder.com/40"
+      },
+      {
+        "id": 4,
+        "type": "bug",
+        "task": "Performance Optimization",
+        "assignedDate": "2024-12-19",
+        "assignedPersonPhoto": "https://via.placeholder.com/40"
+      }
+    ],
+    "Done": [
+      {
+        "id": 5,
+        "type": "feature",
+        "task": "Initial Setup",
+        "assignedDate": "2024-12-15",
+        "assignedPersonPhoto": "https://via.placeholder.com/40"
+      },
+      {
+        "id": 6,
+        "type": "userstory",
+        "task": "Unit Test",
+        "assignedDate": "2024-12-12",
+        "assignedPersonPhoto": "https://via.placeholder.com/40"
+      }
+    ]
+  }
+  
