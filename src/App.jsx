@@ -15,6 +15,7 @@ import Projects from './pages/Projects';
 import Goals from './pages/Goals';
 import Team from './pages/Team';
 import GiveFeedback from './pages/GiveFeedback';
+import ProjectDetails from './pages/ProjectDetails';
 
 
 const LandingNav = () => (
@@ -144,7 +145,7 @@ const AppLayout = ({ children }) => (
             <FaTachometerAlt className="text-black"/>
             <NavLink
               to="/dashboard"
-              className="hover:text-gray-50 font-sans text-base"
+              className="hover:text-gray-50 font-sans text-base py-1"
               style={({ isActive }) => ({
                 color: isActive ? 'red' : 'black',
               })}
@@ -156,7 +157,7 @@ const AppLayout = ({ children }) => (
             <FaProjectDiagram className="text-black" />
             <NavLink
               to="/project-update"
-              className="hover:text-gray-50 font-sans text-base"
+              className="hover:text-gray-50 font-sans text-base py-1"
               style={({ isActive }) => ({
                 color: isActive ? 'red' : 'black',
               })}
@@ -168,7 +169,7 @@ const AppLayout = ({ children }) => (
             <FaBullseye className="text-black" />
             <NavLink
               to="/goal-update"
-              className="hover:text-gray-50 font-sans text-base"
+              className="hover:text-gray-50 font-sans text-base py-1"
               style={({ isActive }) => ({
                 color: isActive ? 'red' : 'black',
               })}
@@ -199,6 +200,7 @@ const App = () => {
               </>
             }
           />
+          <Route path="/projects/:key" element={<ProjectDetails />} />
           <Route
             path="/features"
             element={

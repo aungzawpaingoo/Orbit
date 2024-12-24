@@ -8,10 +8,9 @@ import LoginFooter from '../components/LogInScreenComp/LoginFooter'
 const Dashboard = () => {
   return (
     <div className='w-full bg-white'>
-      <GreetingTitle/>
+      <GreetingTitle title={"Good Day, Aung Zaw Paing Oo"}/>
       <AppRow/>
       <FrequentPlaces/>
-      <LoginFooter/>
     </div>
   )
 }
