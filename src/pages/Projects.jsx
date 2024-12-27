@@ -1,12 +1,13 @@
 import React from 'react';
-import TitleComponent from '../components/ProjectsComp/TitleComponent'
-import ProjectsTable from '../components/ProjectsComp/ProjectsTable';
+import Sidebar from '../components/Sidebar';
 
 const Projects = () => {
   return (
-    <div className="w-full bg-white">
-      <TitleComponent/>
-      <ProjectsTable/>
+    <div className="flex">
+      <Sidebar />
+      <div className="flex-1 p-6 bg-gray-100 min-h-screen">
+        <h1 className="text-xl font-semibold">Projects Content</h1>
+      </div>
     </div>
   );
 };

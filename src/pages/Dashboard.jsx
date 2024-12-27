@@ -1,18 +1,15 @@
-import React from 'react'
-import AppRow from '../components/DashboardComp/AppsRow'
-import FrequentPlaces from '../components/DashboardComp/FrequentPlaces'
-import GreetingTitle from '../components/DashboardComp/GreetingTitle'
-import Recent from '../components/DashboardComp/Recent'
-import LoginFooter from '../components/LogInScreenComp/LoginFooter'
+import React from 'react';
+import Sidebar from '../components/Sidebar';
 
 const Dashboard = () => {
   return (
-    <div className='w-full bg-white'>
-      <GreetingTitle title={"Good Day, Aung Zaw Paing Oo"}/>
-      <AppRow/>
-      <FrequentPlaces/>
+    <div className="flex">
+      <Sidebar />
+      <div className="flex-1 p-6 bg-gray-100 min-h-screen">
+        <h1 className="text-xl font-semibold">Dashboard Content</h1>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;

@@ -1,60 +1,69 @@
 import React, { useState } from 'react';
+import { Table, TableBody, TableCell, TableContainer, TableRow, Paper, Button } from '@mui/material';
 import data from '../../data/data.json';
 
 const FrequentPlaces = () => {
   const [activeTab, setActiveTab] = useState('Working On');
 
   const typeColors = {
-    feature: 'bg-green-500',
-    userstory: 'bg-blue-500',
-    bug: 'bg-red-500',
+    feature: 'green',
+    userstory: 'blue',
+    bug: 'red',
   };
 
   return (
-    <div className="p-4">
-      <div className="flex border-b border-gray-300 mb-4">
+    <div style={{ padding: '16px' }}>
+      <div style={{ display: 'flex', borderBottom: '1px solid #ccc', marginBottom: '16px' }}>
         {['Working On', 'Assigned To Me', 'Done'].map((tab) => (
-          <button
+          <Button
             key={tab}
-            className={`p-2 text-sm transition-colors duration-200 ${
-              activeTab === tab
-                ? 'border-b-2 border-blue-500 text-blue-500'
-                : 'text-gray-600 hover:text-blue-500'
-            }`}
+            variant={activeTab === tab ? 'contained' : 'text'}
+            color={activeTab === tab ? 'primary' : 'inherit'}
             onClick={() => setActiveTab(tab)}
+            style={{
+              textTransform: 'none',
+              marginRight: '8px',
+            }}
           >
             {tab}
-          </button>
+          </Button>
         ))}
       </div>
 
-      <div className="overflow-x-auto">
-        <table className="w-full bg-white">
-          <tbody>
+      <TableContainer component={Paper} elevation={0}>
+        <Table>
+          <TableBody>
             {data[activeTab].map((row) => (
-              <tr
-                key={row.id}
-                className="shadow-md py-8"
-              >
-                <td className="w-10 p-2 text-left">
+              <TableRow key={row.id}>
+                <TableCell>
                   <div
-                    className={`w-4 h-4 rounded-full ${typeColors[row.type]}`}
+                    style={{
+                      width: '16px',
+                      height: '16px',
+                      borderRadius: '50%',
+                      backgroundColor:
+                        row.type === 'feature'
+                          ? 'green'
+                          : row.type === 'userstory'
+                          ? 'blue'
+                          : 'red',
+                    }}
                   ></div>
-                </td>
-                <td className="p-2 text-left">{row.task}</td>
-                <td className="p-2 text-left">{row.assignedDate}</td>
-                <td className="p-2 text-left">
+                </TableCell>
+                <TableCell>{row.task}</TableCell>
+                <TableCell>{row.assignedDate}</TableCell>
+                <TableCell>
                   <img
                     src={row.assignedPersonPhoto}
                     alt="profile"
-                    className="w-10 h-10 rounded-full"
+                    style={{ width: '40px', height: '40px', borderRadius: '50%' }}
                   />
-                </td>
-              </tr>
+                </TableCell>
+              </TableRow>
             ))}
-          </tbody>
-        </table>
-      </div>
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
   );
 };

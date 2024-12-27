@@ -1,0 +1,38 @@
+{
+  "photos": [
+    { "id": 1, "src": "https://images.wsj.net/im-904676/?width=1278&size=1", "alt": "Photo 1" },
+    { "id": 2, "src": "https://images.squarespace-cdn.com/content/v1/6091c3e4f5f6071721c43f77/83c7930e-0a72-449e-99ed-12a97d0986c2/DSC00940-2.jpg", "alt": "Photo 2" },
+    { "id": 3, "src": "https://media.licdn.com/dms/image/v2/D5612AQHpA-gJnj8WIA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1694695499395?e=2147483647&v=beta&t=-46f87fp3YuJYUApu42lpUJVHadJA7khCWEn5vo91Xo", "alt": "Photo 3" },
+    { "id": 4, "src": "https://images.squarespace-cdn.com/content/v1/631ba8eed2196a6795698665/1669832250311-EKD5F6GWZMCGKP42PR6W/2022-08-10-Trinet-Henderson-Tiara-1485.jpg", "alt": "Photo 4" },
+    { "id": 5, "src": "https://www.robertlowdon.com/wp-content/uploads/2022/06/toronto-headshot.webp", "alt": "Photo 5" }
+  ],
+  "dropdowns": [
+    { "id": 1, "label": "Dropdown 1", "options": ["Option 1", "Option 2", "Option 3"] },
+    { "id": 2, "label": "Dropdown 2", "options": ["Option 1", "Option 2", "Option 3"] },
+    { "id": 3, "label": "Dropdown 3", "options": ["Option 1", "Option 2", "Option 3"] },
+    { "id": 4, "label": "Dropdown 4", "options": ["Option 1", "Option 2", "Option 3"] },
+    { "id": 5, "label": "Dropdown 5", "options": ["Option 1", "Option 2", "Option 3"] }
+  ],
+  "tableRows": [
+    { "title": "Fix Login Bug", "type": "Bug", "status": "In Progress", "point": 5, "assignPerson": "Alice Johnson" },
+    { "title": "Create Landing Page", "type": "Feature", "status": "Completed", "point": 8, "assignPerson": "Bob Smith" },
+    { "title": "Optimize Database", "type": "Improvement", "status": "Pending", "point": 13, "assignPerson": "Charlie Brown" },
+    { "title": "Redesign Navbar", "type": "Design", "status": "In Progress", "point": 3, "assignPerson": "Diana Prince" },
+    { "title": "Implement Dark Mode", "type": "Feature", "status": "Pending", "point": 10, "assignPerson": "Ethan Hunt" },
+    { "title": "Fix Search Issue", "type": "Bug", "status": "In Progress", "point": 4, "assignPerson": "Fiona Gallagher" },
+    { "title": "Update API Docs", "type": "Task", "status": "Completed", "point": 2, "assignPerson": "George Martin" },
+    { "title": "Set Up CI/CD", "type": "Improvement", "status": "Pending", "point": 7, "assignPerson": "Hannah Lee" },
+    { "title": "Test Payment Gateway", "type": "Feature", "status": "In Progress", "point": 6, "assignPerson": "Ian Wright" },
+    { "title": "Enhance Security", "type": "Improvement", "status": "Pending", "point": 12, "assignPerson": "Jasmine Khan" },
+    { "title": "Add Multi-Language Support", "type": "Feature", "status": "Completed", "point": 15, "assignPerson": "Kevin Durant" },
+    { "title": "Deploy to Staging", "type": "Task", "status": "In Progress", "point": 9, "assignPerson": "Laura Parker" },
+    { "title": "Integrate Analytics", "type": "Feature", "status": "Pending", "point": 11, "assignPerson": "Michael Scott" },
+    { "title": "Refactor Codebase", "type": "Improvement", "status": "Completed", "point": 14, "assignPerson": "Natalie Portman" },
+    { "title": "Implement Chat Feature", "type": "Feature", "status": "Pending", "point": 18, "assignPerson": "Oliver Queen" },
+    { "title": "Upgrade Server", "type": "Task", "status": "In Progress", "point": 8, "assignPerson": "Peter Parker" },
+    { "title": "Create User Guides", "type": "Task", "status": "Completed", "point": 5, "assignPerson": "Quinn Harper" },
+    { "title": "Improve Page Load Speed", "type": "Improvement", "status": "In Progress", "point": 6, "assignPerson": "Rachel Green" },
+    { "title": "Fix Registration Bug", "type": "Bug", "status": "Pending", "point": 3, "assignPerson": "Steve Rogers" },
+    { "title": "Optimize Images", "type": "Task", "status": "Completed", "point": 7, "assignPerson": "Tony Stark" }
+  ]
+}

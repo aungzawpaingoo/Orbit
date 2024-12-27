@@ -1,51 +1,89 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { FaTachometerAlt, FaProjectDiagram, FaBullseye } from 'react-icons/fa';
-import TextLogo from '../assets/OrbitLogo.png'
+import { FaTachometerAlt, FaProjectDiagram, FaBullseye, FaCogs, FaChartLine } from 'react-icons/fa';
+import { Drawer, List, ListItem, ListItemIcon, ListItemText, Divider } from '@mui/material';
 
 const ProjectDetailsSidebar = () => (
-  <div className="bg-gray-200 w-52 p-6 text-black border border-r-gray-300 h-full">
-    <ul className='h-full'>
-      <li className="mb-4 flex items-center space-x-2">
-      </li>
-      <li className="mb-4 flex items-center space-x-2">
-        <FaProjectDiagram className="text-black" />
-        <NavLink
-          to="/projects/goals"
-          className="hover:text-gray-50 font-sans text-base py-1"
-          style={({ isActive }) => ({
-            color: isActive ? 'red' : 'black',
-          })}
-        >
-          Goals
-        </NavLink>
-      </li>
-      <li className="mb-4 flex items-center space-x-2">
-        <FaBullseye className="text-black" />
-        <NavLink
-          to="/projects/team"
-          className="hover:text-gray-50 font-sans text-base py-1"
-          style={({ isActive }) => ({
-            color: isActive ? 'red' : 'black',
-          })}
-        >
-          Team
-        </NavLink>
-      </li>
-      <li className="mb-4 flex items-center space-x-2">
-        <FaBullseye className="text-black" />
-        <NavLink
-          to="/projects/feedback"
-          className="hover:text-gray-50 font-sans text-base py-1"
-          style={({ isActive }) => ({
-            color: isActive ? 'red' : 'black',
-          })}
-        >
-          Give Feedback
-        </NavLink>
-      </li>
-    </ul>
-  </div>
+  <Drawer
+    variant="permanent"
+    anchor="left"
+    sx={{
+      width: 240,
+      flexShrink: 0,
+      '& .MuiDrawer-paper': {
+        width: 240,
+        boxSizing: 'border-box',
+        backgroundColor: '#f4f4f4',
+      },
+    }}
+  >
+    <List>
+      <ListItem>
+        <img src="TextLogo" alt="Logo" style={{ height: '40px', margin: '0 auto' }} />
+      </ListItem>
+      <Divider />
+
+      {/* Dashboard */}
+      <ListItem button component={NavLink} to="/dashboard" style={({ isActive }) => ({
+        backgroundColor: isActive ? 'rgba(0,0,0,0.1)' : 'transparent',
+      })}>
+        <ListItemIcon>
+          <FaTachometerAlt />
+        </ListItemIcon>
+        <ListItemText primary="Dashboard" />
+      </ListItem>
+
+      {/* Goals */}
+      <ListItem button component={NavLink} to="/projects/goals" style={({ isActive }) => ({
+        backgroundColor: isActive ? 'rgba(0,0,0,0.1)' : 'transparent',
+      })}>
+        <ListItemIcon>
+          <FaProjectDiagram />
+        </ListItemIcon>
+        <ListItemText primary="Goals" />
+      </ListItem>
+
+      {/* Team */}
+      <ListItem button component={NavLink} to="/projects/team" style={({ isActive }) => ({
+        backgroundColor: isActive ? 'rgba(0,0,0,0.1)' : 'transparent',
+      })}>
+        <ListItemIcon>
+          <FaBullseye />
+        </ListItemIcon>
+        <ListItemText primary="Team" />
+      </ListItem>
+
+      {/* Feedback */}
+      <ListItem button component={NavLink} to="/projects/feedback" style={({ isActive }) => ({
+        backgroundColor: isActive ? 'rgba(0,0,0,0.1)' : 'transparent',
+      })}>
+        <ListItemIcon>
+          <FaBullseye />
+        </ListItemIcon>
+        <ListItemText primary="Give Feedback" />
+      </ListItem>
+
+      {/* Settings */}
+      <ListItem button component={NavLink} to="/settings" style={({ isActive }) => ({
+        backgroundColor: isActive ? 'rgba(0,0,0,0.1)' : 'transparent',
+      })}>
+        <ListItemIcon>
+          <FaCogs />
+        </ListItemIcon>
+        <ListItemText primary="Settings" />
+      </ListItem>
+
+      {/* Reports */}
+      <ListItem button component={NavLink} to="/reports" style={({ isActive }) => ({
+        backgroundColor: isActive ? 'rgba(0,0,0,0.1)' : 'transparent',
+      })}>
+        <ListItemIcon>
+          <FaChartLine />
+        </ListItemIcon>
+        <ListItemText primary="Reports" />
+      </ListItem>
+    </List>
+  </Drawer>
 );
 
 export default ProjectDetailsSidebar;
