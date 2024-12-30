@@ -1,14 +1,14 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { 
-  faHouse, 
-  faFolderTree, 
-  faCoins, 
-  faFolderOpen, 
-  faArrowUpRightDots, 
-  faPeopleGroup 
-} from '@fortawesome/free-solid-svg-icons'; 
+import {
+  faHouse,
+  faFolderTree,
+  faCoins,
+  faFolderOpen,
+  faArrowUpRightDots,
+  faPeopleGroup,
+} from '@fortawesome/free-solid-svg-icons';
 
 import { NavLink } from 'react-router-dom';
 import Logo from '../assets/LogoWithTextAlign.png';
@@ -26,23 +26,27 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="h-screen w-60 bg-white text-black flex flex-col items-center">
+    <div className="h-screen w-52 bg-white text-black flex flex-col items-center">
       <div className="py-4">
-        <img src={Logo} alt="Logo" className="w-40 h-10 object-cover" />
+        <img src={Logo} alt="Logo" className="w-40 h-12 mb-1 object-cover" />
       </div>
-      <div className="flex-1 flex flex-col w-full">
-        {menuItems.map((item) => (
-          <NavLink
-            key={item.id}
-            to={item.href}
-            className={({ isActive }) =>
-              `flex items-center gap-3 px-4 py-3 w-full ${isActive ? 'bg-white text-blue-500' : 'hover:bg-white'}`
-            }
-          >
-            {item.icon}
-            <span className="text-sm">{item.label}</span>
-          </NavLink>
-        ))}
+      <div className="flex-1 flex justify-center">
+        <div className="flex flex-col gap-0 w-full">
+          {menuItems.map((item) => (
+            <NavLink
+              key={item.id}
+              to={item.href}
+              className={({ isActive }) =>
+                `flex items-center gap-4 px-1 py-3 w-full ${
+                  isActive ? 'bg-white text-blue-500' : 'hover:bg-white'
+                }`
+              }
+            >
+              {item.icon}
+              <span className="text-sm">{item.label}</span>
+            </NavLink>
+          ))}
+        </div>
       </div>
     </div>
   );

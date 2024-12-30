@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Card Title 1",
+    "description": "Description 1",
+    "image": "https://img.freepik.com/premium-photo/colorful-gradient-square-icon-with-rounded-corners-likely-representing-digital-application-service_1372717-5517.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Card Title 2",
+    "description": "Description 2",
+    "image": "https://img.freepik.com/premium-photo/colorful-gradient-square-icon-with-rounded-corners-likely-representing-digital-application-service_1372717-5517.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Card Title 3",
+    "description": "Description 3",
+    "image": "https://img.freepik.com/premium-photo/colorful-gradient-square-icon-with-rounded-corners-likely-representing-digital-application-service_1372717-5517.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Card Title 4",
+    "description": "Description 4",
+    "image": "https://img.freepik.com/premium-photo/colorful-gradient-square-icon-with-rounded-corners-likely-representing-digital-application-service_1372717-5517.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Card Title 5",
+    "description": "Description 5",
+    "image": "https://img.freepik.com/premium-photo/colorful-gradient-square-icon-with-rounded-corners-likely-representing-digital-application-service_1372717-5517.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Card Title 6",
+    "description": "Description 6",
+    "image": "https://img.freepik.com/premium-photo/colorful-gradient-square-icon-with-rounded-corners-likely-representing-digital-application-service_1372717-5517.jpg"
+  }
+]
