@@ -26,7 +26,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="h-screen w-52 bg-white text-black flex flex-col items-center">
+    <div className="h-screen w-60 bg-white text-black flex flex-col items-center border border-gray-200">
       <div className="py-4">
         <img src={Logo} alt="Logo" className="w-40 h-12 mb-1 object-cover" />
       </div>
@@ -37,8 +37,8 @@ const Sidebar = () => {
               key={item.id}
               to={item.href}
               className={({ isActive }) =>
-                `flex items-center gap-4 px-1 py-3 w-full ${
-                  isActive ? 'bg-white text-blue-500' : 'hover:bg-white'
+                `flex items-center gap-3 px-8 py-3 w-full ${
+                  isActive ? 'bg-blue-50 rounded-md font-semibold text-blue-500' : 'hover:bg-white'
                 }`
               }
             >

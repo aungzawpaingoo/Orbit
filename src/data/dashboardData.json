@@ -1,98 +1,53 @@
 {
-    "counts": [
-      {
-        "id": 1,
-        "title": "Total Users",
-        "value": 1500,
-        "icon": "user-group"
-      },
-      {
-        "id": 2,
-        "title": "Active Subscriptions",
-        "value": 800,
-        "icon": "badge-check"
-      },
-      {
-        "id": 3,
-        "title": "Monthly Revenue",
-        "value": 12000,
-        "icon": "cash"
-      },
-      {
-        "id": 4,
-        "title": "Pending Orders",
-        "value": 50,
-        "icon": "shopping-cart"
-      }
-    ],
-    "charts": {
-      "lineChart": {
-        "title": "User Growth",
-        "data": {
-          "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug"],
-          "datasets": [
-            {
-              "label": "New Users",
-              "data": [100, 200, 150, 300, 400, 350, 500, 600],
-              "borderColor": "#4CAF50",
-              "fill": false
-            },
-            {
-              "label": "Active Users",
-              "data": [50, 100, 120, 200, 250, 300, 400, 450],
-              "borderColor": "#2196F3",
-              "fill": false
-            }
-          ]
-        }
-      },
-      "barChart": {
-        "title": "Revenue Breakdown",
-        "data": {
-          "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug"],
-          "datasets": [
-            {
-              "label": "Revenue ($)",
-              "data": [500, 700, 800, 600, 900, 1000, 1100, 1200],
-              "backgroundColor": "#FFC107"
-            }
-          ]
-        }
-      },
-      "pieChart": {
-        "title": "Subscription Plans",
-        "data": {
-          "labels": ["Basic", "Standard", "Premium"],
-          "datasets": [
-            {
-              "data": [50, 30, 20],
-              "backgroundColor": ["#4CAF50", "#2196F3", "#FFC107"]
-            }
-          ]
-        }
-      }
-    },
-    "timeline": [
-      {
-        "timestamp": "2024-12-25T10:00:00Z",
-        "event": "New feature released: Advanced Analytics"
-      },
-      {
-        "timestamp": "2024-12-24T08:00:00Z",
-        "event": "User milestone reached: 1500 users"
-      },
-      {
-        "timestamp": "2024-12-20T14:30:00Z",
-        "event": "System maintenance completed"
-      },
-      {
-        "timestamp": "2024-12-18T12:00:00Z",
-        "event": "Bug fix: Issue with payment gateway resolved"
-      },
-      {
-        "timestamp": "2024-12-15T09:00:00Z",
-        "event": "Marketing campaign launched: Holiday Discounts"
-      }
-    ]
-  }
-  
+  "projectTimelineData": [
+    { "month": "Jan", "completed": 10, "pending": 5 },
+    { "month": "Feb", "completed": 15, "pending": 8 },
+    { "month": "Mar", "completed": 20, "pending": 3 },
+    { "month": "Apr", "completed": 25, "pending": 7 },
+    { "month": "May", "completed": 30, "pending": 4 },
+    { "month": "Jun", "completed": 35, "pending": 6 },
+    { "month": "Jul", "completed": 40, "pending": 5 },
+    { "month": "Aug", "completed": 45, "pending": 3 },
+    { "month": "Sep", "completed": 50, "pending": 2 },
+    { "month": "Oct", "completed": 55, "pending": 4 },
+    { "month": "Nov", "completed": 60, "pending": 3 },
+    { "month": "Dec", "completed": 65, "pending": 1 }
+  ],
+  "teamPerformanceData": [
+    { "name": "Alice", "tasks": 15 },
+    { "name": "Bob", "tasks": 20 },
+    { "name": "Charlie", "tasks": 10 },
+    { "name": "Diana", "tasks": 18 },
+    { "name": "Eve", "tasks": 25 },
+    { "name": "Frank", "tasks": 22 },
+    { "name": "Grace", "tasks": 30 },
+    { "name": "Hank", "tasks": 28 },
+    { "name": "Ivy", "tasks": 26 },
+    { "name": "Jack", "tasks": 35 },
+    { "name": "Kenny", "tasks": 40 },
+    { "name": "Liam", "tasks": 45 }
+  ],
+  "projectStatusData": [
+    { "name": "Completed", "value": 60 },
+    { "name": "In Progress", "value": 30 },
+    { "name": "Pending", "value": 10 },
+    { "name": "On Hold", "value": 5 },
+    { "name": "Cancelled", "value": 3 },
+    { "name": "Archived", "value": 7 }
+  ],
+  "userEngagementData": [
+    { "day": "Mon", "activeUsers": 120 },
+    { "day": "Tue", "activeUsers": 150 },
+    { "day": "Wed", "activeUsers": 180 },
+    { "day": "Thu", "activeUsers": 130 },
+    { "day": "Fri", "activeUsers": 200 },
+    { "day": "Sat", "activeUsers": 170 },
+    { "day": "Sun", "activeUsers": 140 },
+    { "day": "Mon2", "activeUsers": 160 },
+    { "day": "Tue2", "activeUsers": 155 },
+    { "day": "Wed2", "activeUsers": 180 },
+    { "day": "Thu2", "activeUsers": 190 },
+    { "day": "Fri2", "activeUsers": 220 },
+    { "day": "Sat2", "activeUsers": 210 }
+  ]
+}
