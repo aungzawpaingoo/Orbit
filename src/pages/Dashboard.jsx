@@ -32,4 +32,46 @@ const Dashboard = () => {
 
 export default Dashboard;
 
+// import React from 'react';
+// import Sidebar from '../components/Sidebar';
+// import TitleBreadCrump from '../components/AppComponents/CommonComp/TitleBreadCrump';
+// import ResponsiveGrid from '../components/AppComponents/DashboardComp/ResponsiveGrid';
+// import { useProject } from '../data/Context/ProjectContext';
+// import InAppBar from '../components/AppComponents/CommonComp/InAppBar';
+
+// const Dashboard = () => {
+//   const { project } = useProject();
+
+//   return (
+//     <div className="h-screen flex flex-col">
+//       {/* AppBar - Fixed at the Top */}
+//       <div className="fixed top-0 left-0 right-0 h-16 bg-white border-b border-gray-500 z-30">
+//         <InAppBar />
+//       </div>
+
+//       {/* Sidebar and Main Content */}
+//       <div className="flex flex-1 mt-16">
+//         {/* Sidebar - Fixed */}
+//         <div className="fixed top-16 left-0 text-white z-20">
+//           <Sidebar />
+//         </div>
+
+//         {/* Scrollable Main Content */}
+//         <div className="flex-1 ml-64 p-6 overflow-y-auto bg-white">
+//           <TitleBreadCrump
+//             titleOne={project.name}
+//             titleTwo={project.key}
+//             titleThree={"Report View"}
+//           />
+
+//           <h1 className="text-2xl font-bold my-4">Summary</h1>
+
+//           <ResponsiveGrid />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Dashboard;
 

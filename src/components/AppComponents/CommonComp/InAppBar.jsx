@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -8,17 +8,15 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
-import AppBarIcon from '../assets/LogoWithTextAlign.png';
-import NotificationIcon from '../assets/bell (1).png';
-import HelpIcon from '../assets/interrogation (2).png';
-import SettingsIcon from '../assets/settings (1).png';
-import { UserContext } from '../data/Context/UserContext';
+import AppBarIcon from '../../../assets/LogoWithTextAlign.png';
+import NotificationIcon from '../../../assets/bell (1).png';
+import HelpIcon from '../../../assets/interrogation (2).png';
+import SettingsIcon from '../../../assets/settings (1).png';
+import { UserContext } from '../../../data/Context/UserContext';
 
-const CustomAppBar = () => {
+const InAppBar = () => {
 
   const { user } = useContext(UserContext);
-  //console.log('User in CustomAppBar:', user);
-
 
   return (
     <AppBar position="static" sx={{ backgroundColor: 'white', padding: 0, boxShadow: 'none', borderBottomColor: 'lightgray', borderWidth: 1 }}>
@@ -93,4 +91,4 @@ const CustomAppBar = () => {
   );
 };
 
-export default CustomAppBar;
+export default InAppBar;

@@ -59,7 +59,7 @@ const ProjectTable = () => {
             <TableCell sx={{color:'white', fontWeight: 'bold', fontSize:14}}>Name</TableCell>
             <TableCell sx={{color:'white', fontWeight: 'bold', fontSize:14}}>Key</TableCell>
             <TableCell sx={{color:'white', fontWeight: 'bold', fontSize:14}}>Type</TableCell>
-            <TableCell sx={{color:'white', fontWeight: 'bold', fontSize:14}}>Assigned Person</TableCell>
+            <TableCell sx={{color:'white', fontWeight: 'bold', fontSize:14}}>Product Owner</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
