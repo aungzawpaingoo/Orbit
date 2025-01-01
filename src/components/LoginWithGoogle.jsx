@@ -14,7 +14,7 @@ const LoginWithGoogle = () => {
             .then(async (result) => {
                 console.log(result); 
                 alert('Login Successful!');
-                navigate('/dashboard');
+                navigate('/projects');
             })
             .catch((error) => {
                 console.error('Error during Google Login:', error);

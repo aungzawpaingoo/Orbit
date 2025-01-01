@@ -14,7 +14,7 @@ const ResponsiveGrid = () => {
       <Grid container spacing={3}>
         {/* Area Chart: Project Timeline */}
         <Grid item xs={12} md={6}>
-          <Paper sx={{ padding: 2 }}>
+          <Paper sx={{ padding: 3 }}>
             <Typography variant="h6" gutterBottom>
               Project Timeline
             </Typography>
@@ -37,7 +37,7 @@ const ResponsiveGrid = () => {
 
         {/* Composed Chart: Team Performance */}
         <Grid item xs={12} md={6}>
-          <Paper sx={{ padding: 2 }}>
+          <Paper sx={{ padding: 3 }}>
             <Typography variant="h6" gutterBottom>
               Team Performance
             </Typography>
@@ -59,7 +59,7 @@ const ResponsiveGrid = () => {
 
         {/* Radar Chart: Project Status */}
         <Grid item xs={12} md={6}>
-          <Paper sx={{ padding: 2 }}>
+          <Paper sx={{ padding: 3 }}>
             <Typography variant="h6" gutterBottom>
               Project Status
             </Typography>
@@ -84,7 +84,7 @@ const ResponsiveGrid = () => {
 
         {/* Line Chart: User Engagement */}
         <Grid item xs={12} md={6}>
-          <Paper sx={{ padding: 2 }}>
+          <Paper sx={{ padding: 3 }}>
             <Typography variant="h6" gutterBottom>
               User Engagement
             </Typography>
