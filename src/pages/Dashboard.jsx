@@ -13,17 +13,20 @@ const Dashboard = () => {
   return (
     <div className="flex h-screen">
       
+      
       <div className="">
         <Sidebar />
       </div>
 
       
-      <div className="flex-1 p-6 bg-white overflow-y-auto px-10">
+      <div className="flex-1 p-6 bg-white overflow-y-auto px-4">
+        
         <TitleBreadCrump titleOne={project.name} titleTwo={project.key} titleThree={"Report View"}/>
 
         <h1 className="text-2xl font-bold my-4">Summary</h1>
 
         <ResponsiveGrid />
+        
       </div>
 
     </div>

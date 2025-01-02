@@ -52,7 +52,7 @@ const ProjectTable = () => {
   };
 
   return (
-    <TableContainer component={Paper} sx={{ boxShadow: '', borderRadius:'100' }}>
+    <TableContainer component={Paper} sx={{ boxShadow: 'none', borderRadius:'100', width: 'full', }}>
       <Table>
         <TableHead className='bg-black'>
           <TableRow>

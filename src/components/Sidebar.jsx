@@ -2,28 +2,33 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
-  faHouse,
-  faFolderTree,
-  faCoins,
-  faFolderOpen,
-  faArrowUpRightDots,
-  faPeopleGroup,
+  faTableColumns,
+  faRectangleList,
+  faPersonRunning,
+  faList,
+  faBullseye,
+  faBug,
 } from '@fortawesome/free-solid-svg-icons';
 
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Logo from '../assets/cardImg.png';
 import { useProject } from '../data/Context/ProjectContext';
 
-library.add(faHouse, faFolderTree, faCoins, faFolderOpen, faArrowUpRightDots, faPeopleGroup);
+library.add(faTableColumns, faRectangleList, faPersonRunning, faList, faBullseye, faBug);
 
 const Sidebar = () => {
   const menuItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: <FontAwesomeIcon icon="fa-solid fa-house" size="sm" />, href: '/dashboard' },
-    // { id: 'projects', label: 'Projects', icon: <FontAwesomeIcon icon="fa-solid fa-folder-tree" size="sm" />, href: '/projects' },
-    { id: 'goals', label: 'Goals', icon: <FontAwesomeIcon icon="fa-solid fa-coins" size="sm" />, href: '/goals' },
-    { id: 'project-update', label: 'Project Update', icon: <FontAwesomeIcon icon="fa-solid fa-folder-open" size="sm" />, href: '/project-update' },
-    { id: 'goal-update', label: 'Goal Update', icon: <FontAwesomeIcon icon="fa-solid fa-arrow-up-right-dots" size="sm" />, href: '/goal-update' },
-    { id: 'team', label: 'Team', icon: <FontAwesomeIcon icon="fa-solid fa-people-group" size="sm" />, href: '/team' },
+    { id: 'dashboard', label: 'Dashboard', icon: <FontAwesomeIcon icon="fa-solid fa-table-columns" size="sm" />, href: '/dashboard' },
+    
+    { id: 'backlog', label: 'Backlog', icon: <FontAwesomeIcon icon="fa-solid fa-rectangle-list" size="sm" />, href: '/backlog' },
+    
+    { id: 'active-sprint', label: 'Active Sprint', icon: <FontAwesomeIcon icon="fa-solid fa-person-running" size="sm" />, href: '/active-sprint' },
+    
+    { id: 'list', label: 'List', icon: <FontAwesomeIcon icon="fa-solid fa-list" size="sm" />, href: '/list' },
+    
+    { id: 'goals', label: 'Goals', icon: <FontAwesomeIcon icon="fa-solid fa-bullseye" size="sm" />, href: '/goals' },
+    
+    { id: 'issues', label: 'Issues', icon: <FontAwesomeIcon icon="fa-solid fa-bug" size="sm" />, href: '/issues' },
   ];
 
   const { project } = useProject();
@@ -44,7 +49,7 @@ const Sidebar = () => {
               key={item.id}
               to={item.href}
               className={({ isActive }) =>
-                `flex items-center gap-4 px-8 py-3 w-full ${
+                `flex items-center gap-4 px-12 py-3 w-full ${
                   isActive ? 'bg-blue-50 rounded-md font-semibold text-blue-500' : 'hover:bg-white'
                 }`
               }

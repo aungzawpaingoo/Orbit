@@ -1,0 +1,132 @@
+[
+  {
+    "name": "Implement Login Feature",
+    "priority": "High",
+    "status": "In Progress",
+    "assignee": {
+      "name": "John Doe",
+      "image": "https://randomuser.me/api/portraits/men/1.jpg"
+    },
+    "dueDate": "2025-01-15",
+    "estimatedHours": 12,
+    "history": [
+      { "date": "2025-01-10", "update": "Initial implementation started" },
+      { "date": "2025-01-12", "update": "Feature completed and under review" }
+    ]
+  },
+  {
+    "name": "Setup Database",
+    "priority": "Medium",
+    "status": "Completed",
+    "assignee": {
+      "name": "Jane Smith",
+      "image": "https://randomuser.me/api/portraits/women/2.jpg"
+    },
+    "dueDate": "2025-01-10",
+    "estimatedHours": 8,
+    "history": [
+      { "date": "2025-01-05", "update": "Database schema designed" },
+      { "date": "2025-01-07", "update": "Database setup completed" }
+    ]
+  },
+  {
+    "name": "Design Homepage UI",
+    "priority": "High",
+    "status": "Pending",
+    "assignee": {
+      "name": "Alice Johnson",
+      "image": "https://randomuser.me/api/portraits/women/3.jpg"
+    },
+    "dueDate": "2025-01-20",
+    "estimatedHours": 16,
+    "history": []
+  },
+  {
+    "name": "Optimize API Calls",
+    "priority": "High",
+    "status": "In Progress",
+    "assignee": {
+      "name": "Robert Brown",
+      "image": "https://randomuser.me/api/portraits/men/4.jpg"
+    },
+    "dueDate": "2025-01-18",
+    "estimatedHours": 14,
+    "history": [
+      { "date": "2025-01-12", "update": "Optimization in progress" }
+    ]
+  },
+  {
+    "name": "Write Test Cases",
+    "priority": "Medium",
+    "status": "Completed",
+    "assignee": {
+      "name": "Emily White",
+      "image": "https://randomuser.me/api/portraits/women/5.jpg"
+    },
+    "dueDate": "2025-01-12",
+    "estimatedHours": 10,
+    "history": []
+  },
+  {
+    "name": "Refactor Codebase",
+    "priority": "High",
+    "status": "On Hold",
+    "assignee": {
+      "name": "Michael Green",
+      "image": "https://randomuser.me/api/portraits/men/6.jpg"
+    },
+    "dueDate": "2025-01-22",
+    "estimatedHours": 20,
+    "history": [
+      { "date": "2025-01-11", "update": "Initial refactoring started" }
+    ]
+  },
+  {
+    "name": "Develop Search Feature",
+    "priority": "High",
+    "status": "In Progress",
+    "assignee": {
+      "name": "Sarah Black",
+      "image": "https://randomuser.me/api/portraits/women/7.jpg"
+    },
+    "dueDate": "2025-01-19",
+    "estimatedHours": 15,
+    "history": []
+  },
+  {
+    "name": "Set Up CI/CD Pipeline",
+    "priority": "Low",
+    "status": "Pending",
+    "assignee": {
+      "name": "David Blue",
+      "image": "https://randomuser.me/api/portraits/men/8.jpg"
+    },
+    "dueDate": "2025-01-30",
+    "estimatedHours": 12,
+    "history": []
+  },
+  {
+    "name": "Enhance Security Measures",
+    "priority": "High",
+    "status": "In Progress",
+    "assignee": {
+      "name": "Anna Gray",
+      "image": "https://randomuser.me/api/portraits/women/9.jpg"
+    },
+    "dueDate": "2025-01-25",
+    "estimatedHours": 18,
+    "history": []
+  },
+  {
+    "name": "Finalize Documentation",
+    "priority": "Medium",
+    "status": "Pending",
+    "assignee": {
+      "name": "Tom Walker",
+      "image": "https://randomuser.me/api/portraits/men/10.jpg"
+    },
+    "dueDate": "2025-01-28",
+    "estimatedHours": 6,
+    "history": []
+  }
+]

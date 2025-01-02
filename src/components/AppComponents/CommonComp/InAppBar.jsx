@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -19,7 +19,7 @@ const InAppBar = () => {
   const { user } = useContext(UserContext);
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'white', padding: 0, boxShadow: 'none', borderBottomColor: 'lightgray', borderWidth: 1 }}>
+    <AppBar position="static" sx={{ backgroundColor: 'blue', padding: 0, boxShadow: 'none', borderBottomColor: 'lightgray', borderWidth: 0 }}>
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         <Box>
           <img

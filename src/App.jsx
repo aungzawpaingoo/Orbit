@@ -326,6 +326,10 @@ import Projects from './pages/Projects';
 import Goals from './pages/Goals';
 import Team from './pages/Team';
 import GiveFeedback from './pages/GiveFeedback';
+import Backlog from './pages/Backlog';
+import Activesprint from './pages/Activesprint';
+import List from './pages/List';
+import Issues from './pages/Issues';
 
 const LandingNav = () => (
   <nav className="bg-blue-500 p-6 fixed top-0 left-0 w-full z-50">
@@ -453,13 +457,18 @@ const App = () => {
               </>
             }
           />
-          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/project-update" element={<ProjectUpdate />} />
           <Route path="/goal-update" element={<GoalUpdate />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/goals" element={<Goals />} />
           <Route path="/team" element={<Team />} />
           <Route path="/feedback" element={<GiveFeedback />} />
+
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path='/backlog' element={<Backlog/>}/>
+          <Route path='/active-sprint' element={<Activesprint/>}/>
+          <Route path='/list' element={<List/>}/>
+          <Route path="/goals" element={<Goals />} />
+          <Route path='/issues' element={<Issues/>}/>
         </Routes>
       </div>
     </Router>

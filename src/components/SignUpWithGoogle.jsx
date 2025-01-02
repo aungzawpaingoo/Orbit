@@ -13,7 +13,7 @@ const SignUpWithGoogle = () => {
             .then(async (result) => {
                 console.log(result); // Log the result of the signup
                 alert('Signup Successful!');
-                navigate('/projects'); // Redirect to dashboard after signup
+                navigate('/logIn'); // Redirect to dashboard after signup
             })
             .catch((error) => {
                 console.error('Error during Google Signup:', error);
