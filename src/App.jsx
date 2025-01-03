@@ -328,7 +328,7 @@ import Team from './pages/Team';
 import GiveFeedback from './pages/GiveFeedback';
 import Backlog from './pages/Backlog';
 import Activesprint from './pages/Activesprint';
-import List from './pages/List';
+import Calendar from './pages/Calendar';
 import Issues from './pages/Issues';
 
 const LandingNav = () => (
@@ -407,7 +407,7 @@ const App = () => {
             element={
               <>
                 <LandingNav />
-                <div className="flex-grow p-6 mt-24">
+                <div className="flex-grow p-0 mt-16">
                   <Home />
                 </div>
               </>
@@ -466,7 +466,7 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path='/backlog' element={<Backlog/>}/>
           <Route path='/active-sprint' element={<Activesprint/>}/>
-          <Route path='/list' element={<List/>}/>
+          <Route path='/calendar' element={<Calendar/>}/>
           <Route path="/goals" element={<Goals />} />
           <Route path='/issues' element={<Issues/>}/>
         </Routes>

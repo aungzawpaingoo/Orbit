@@ -5,7 +5,7 @@ import {
   faTableColumns,
   faRectangleList,
   faPersonRunning,
-  faList,
+  faCalendarDays,
   faBullseye,
   faBug,
 } from '@fortawesome/free-solid-svg-icons';
@@ -14,7 +14,7 @@ import { NavLink } from 'react-router-dom';
 import Logo from '../assets/cardImg.png';
 import { useProject } from '../data/Context/ProjectContext';
 
-library.add(faTableColumns, faRectangleList, faPersonRunning, faList, faBullseye, faBug);
+library.add(faTableColumns, faRectangleList, faPersonRunning, faCalendarDays, faBullseye, faBug);
 
 const Sidebar = () => {
   const menuItems = [
@@ -24,7 +24,7 @@ const Sidebar = () => {
     
     { id: 'active-sprint', label: 'Active Sprint', icon: <FontAwesomeIcon icon="fa-solid fa-person-running" size="sm" />, href: '/active-sprint' },
     
-    { id: 'list', label: 'List', icon: <FontAwesomeIcon icon="fa-solid fa-list" size="sm" />, href: '/list' },
+    { id: 'calendar', label: 'Calendar', icon: <FontAwesomeIcon icon="fa-solid fa-calendar-days" size="sm" />, href: '/calendar' },
     
     { id: 'goals', label: 'Goals', icon: <FontAwesomeIcon icon="fa-solid fa-bullseye" size="sm" />, href: '/goals' },
     
