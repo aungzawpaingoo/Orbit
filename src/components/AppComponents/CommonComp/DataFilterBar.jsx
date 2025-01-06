@@ -39,7 +39,7 @@ const DataFilterBar = ({btnClick}) => {
         ))}
       </Box>
 
-      <Button
+      {/* <Button
         onClick={btnClick}
         variant="contained"
         startIcon={<AddIcon />}
@@ -53,7 +53,7 @@ const DataFilterBar = ({btnClick}) => {
         }}
       >
         Create
-      </Button>
+      </Button> */}
 
     </Box>
   )
