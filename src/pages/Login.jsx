@@ -13,9 +13,20 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      alert('User Login Successful');
-      navigate('/projects');
+
+      const userCredential = await signInWithEmailAndPassword(auth,email,password);
+      const user = userCredential.user;
+
+      if (user.emailVerified) {
+        alert('User Login Successful');
+        navigate('/projects');
+      } else {
+        alert('Please verify your email before logging in!');
+      }
+
+      // await signInWithEmailAndPassword(auth, email, password);
+      // alert('User Login Successful');
+      // navigate('/projects');
       setEmail('');
       setPassword('');
     } catch (error) {
