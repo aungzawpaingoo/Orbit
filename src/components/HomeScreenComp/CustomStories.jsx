@@ -5,34 +5,33 @@ const CustomStories = () => {
 
   const features = [
     {
-      title: '⚡ Plan and organize tasks',
+      title: '📅 Efficient Task Management',
       description:
-        'From short projects to large cross-functional programs, Orbit helps break big ideas down into achievable steps. Organize work, create milestones, map dependencies, and more.',
-      image: 'https://via.placeholder.com/400x300?text=Plan+and+Organize+Tasks',
+        'Break down large initiatives into manageable tasks, assign deadlines, and track progress effortlessly. Stay on top of your work with ease using Orbit’s intuitive task management system.',
+      image: 'https://via.placeholder.com/400x300?text=Efficient+Task+Management',
     },
     {
-      title: 'Align work to goals',
+      title: 'Strategic Goal Alignment',
       description:
-        'Ensure that your projects align with your business objectives. Set clear goals and track progress effectively.',
-      image: 'https://via.placeholder.com/400x300?text=Align+Work+to+Goals',
+        'Make sure every project you undertake aligns with your long-term objectives. Set measurable targets, track outcomes, and ensure your team’s actions are driving business growth.',
+      image: 'https://via.placeholder.com/400x300?text=Strategic+Goal+Alignment',
     },
     {
-      title: 'Track work your way',
+      title: 'Customizable Progress Tracking',
       description:
-        'Track tasks and projects with customizable views tailored to your workflow, whether agile boards or detailed lists.',
-      image: 'https://via.placeholder.com/400x300?text=Track+Work+Your+Way',
+        'Customize your workflow by choosing how you want to track projects. Whether it’s through boards, lists, or task views, Orbit adapts to the way your team works best.',
+      image: 'https://via.placeholder.com/400x300?text=Customizable+Progress+Tracking',
     },
     {
-      title: 'Optimize with insights',
+      title: 'Data-Driven Performance Insights',
       description:
-        'Get actionable insights and reports to optimize your workflows and improve efficiency.',
-      image: 'https://via.placeholder.com/400x300?text=Optimize+with+Insights',
+        'Leverage detailed reports and analytics to evaluate your team’s performance. Optimize processes, spot inefficiencies, and make data-backed decisions to improve project outcomes.',
+      image: 'https://via.placeholder.com/400x300?text=Data-Driven+Performance+Insights',
     },
   ];
 
   return (
     <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between bg-white p-6 lg:p-12 w-full">
-      {/* Image Section */}
       <div className="lg:w-1/3 w-full flex flex-col items-center justify-center">
         <img
           src={features[selectedFeature].image}
@@ -41,7 +40,6 @@ const CustomStories = () => {
         />
       </div>
 
-      {/* Text Section */}
       <div className="lg:w-1/3 w-full flex flex-col items-center justify-center text-center">
         <h2 className="text-xl font-bold text-gray-900 mb-4">
           {features[selectedFeature].title}
@@ -49,7 +47,6 @@ const CustomStories = () => {
         <p className="text-gray-700 mb-6">{features[selectedFeature].description}</p>
       </div>
 
-      {/* Tab Section */}
       <div className="lg:w-1/3 w-full flex flex-col space-y-4">
         {features.map((feature, index) => (
           <button

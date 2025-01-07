@@ -2,7 +2,7 @@ import { Avatar, Select, TextField, Box, Button, MenuItem, Dialog, DialogActions
 import AddIcon from '@mui/icons-material/Add';
 import React, { useState } from 'react';
 
-const BackLogOperationBar = ({ addTask }) => {
+const GoalsOperationBar = ({ addTask }) => {
   const selectStyle = {
     marginRight: '8px',
     width: '150px',
@@ -195,4 +195,4 @@ const BackLogOperationBar = ({ addTask }) => {
   );
 };
 
-export default BackLogOperationBar;
+export default GoalsOperationBar;
