@@ -1,70 +1,70 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
+
+const testimonies = [
+  {
+    quote:
+      "“Orbit has transformed the way our team collaborates. The Smart Links and integrations have been game-changers for productivity and discoverability.”",
+    author: "Jane Doe",
+    role: "Project Manager, TechNova",
+  },
+  {
+    quote:
+      "“With Orbit, managing complex projects has never been easier. The intuitive interface and powerful tools save us hours every week.”",
+    author: "John Smith",
+    role: "Senior Developer, InnovateX",
+  },
+  {
+    quote:
+      "“The simplicity and efficiency of Orbit allow us to focus on what matters most—delivering value to our customers.”",
+    author: "Emily Johnson",
+    role: "CEO, FutureTech",
+  },
+];
 
 const CustomStories = () => {
-  const [selectedFeature, setSelectedFeature] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const features = [
-    {
-      title: '📅 Efficient Task Management',
-      description:
-        'Break down large initiatives into manageable tasks, assign deadlines, and track progress effortlessly. Stay on top of your work with ease using Orbit’s intuitive task management system.',
-      image: 'https://via.placeholder.com/400x300?text=Efficient+Task+Management',
-    },
-    {
-      title: 'Strategic Goal Alignment',
-      description:
-        'Make sure every project you undertake aligns with your long-term objectives. Set measurable targets, track outcomes, and ensure your team’s actions are driving business growth.',
-      image: 'https://via.placeholder.com/400x300?text=Strategic+Goal+Alignment',
-    },
-    {
-      title: 'Customizable Progress Tracking',
-      description:
-        'Customize your workflow by choosing how you want to track projects. Whether it’s through boards, lists, or task views, Orbit adapts to the way your team works best.',
-      image: 'https://via.placeholder.com/400x300?text=Customizable+Progress+Tracking',
-    },
-    {
-      title: 'Data-Driven Performance Insights',
-      description:
-        'Leverage detailed reports and analytics to evaluate your team’s performance. Optimize processes, spot inefficiencies, and make data-backed decisions to improve project outcomes.',
-      image: 'https://via.placeholder.com/400x300?text=Data-Driven+Performance+Insights',
-    },
-  ];
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonies.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between bg-white p-6 lg:p-12 w-full">
-      <div className="lg:w-1/3 w-full flex flex-col items-center justify-center">
-        <img
-          src={features[selectedFeature].image}
-          alt={features[selectedFeature].title}
-          className="rounded-lg shadow-lg w-full max-w-md object-cover mb-6"
-        />
+    <div className="relative bg-gradient-to-r from-gray-900 via-black to-gray-800  py-32 px-6 sm:px-10 lg:px-20">
+      <div className="text-center mb-10">
+        <h1 className="text-6xl font-bold text-white">For teams big & small</h1>
+        <p className="text-lg text-white mt-4">
+          Hear from start-ups & large enterprises that prefer Orbit
+        </p>
+        <a
+          href="#customer-stories"
+          className="text-blue-600 font-medium mt-4 inline-block"
+        >
+          See more customer stories
+        </a>
       </div>
 
-      <div className="lg:w-1/3 w-full flex flex-col items-center justify-center text-center">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">
-          {features[selectedFeature].title}
-        </h2>
-        <p className="text-gray-700 mb-6">{features[selectedFeature].description}</p>
-      </div>
-
-      <div className="lg:w-1/3 w-full flex flex-col space-y-4">
-        {features.map((feature, index) => (
-          <button
+      {/* Carousel Container */}
+      <div className="relative bg-black h-72 rounded-lg shadow-lg p-8 max-w-xl mx-auto overflow-hidden">
+        {testimonies.map((testimony, index) => (
+          <div
             key={index}
-            onClick={() => setSelectedFeature(index)}
-            className={`text-left p-4 border-l-4 ${
-              selectedFeature === index ? 'border-blue-500 bg-blue-50' : 'border-gray-200'
-            } transition-all hover:bg-blue-100`}
+            className={`absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-700 ease-in-out ${
+              index === currentIndex ? "opacity-100" : "opacity-0"
+            }`}
           >
-            <h3
-              className={`text-lg font-medium ${
-                selectedFeature === index ? 'text-blue-600' : 'text-gray-900'
-              }`}
-            >
-              {feature.title}
-            </h3>
-          </button>
+            <p className="text-white text-lg italic text-center">{testimony.quote}</p>
+            <p className="text-white font-semibold mt-4">{testimony.author}</p>
+            <p className="text-white">{testimony.role}</p>
+          </div>
         ))}
+      </div>
+
+      <div className="text-center mt-10">
+        
+       
       </div>
     </div>
   );

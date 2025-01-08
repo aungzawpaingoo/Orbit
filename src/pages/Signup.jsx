@@ -36,7 +36,7 @@
 //         <section className="text-gray-600 body-font">
 //           <div className="container px-5 py-2 mx-auto">
 //             <div className="flex flex-col text-center w-full mb-2">
-//               <h2 className="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">ROOF PARTY POLAROID</h2>
+//               <h2 className="text-xs text-blue-500 tracking-widest font-medium title-font mb-1">ROOF PARTY POLAROID</h2>
 //               <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Master Cleanse Reliac Heirloom</h1>
 //               <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
 //                 Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.
@@ -95,7 +95,7 @@
 //               <div>
 //                 <button
 //                   type="submit"
-//                   className="flex w-full justify-center rounded-md bg-blue-500 px-3 py-1 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+//                   className="flex w-full justify-center rounded-md bg-blue-500 px-3 py-1 text-sm/6 font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
 //                 >
 //                   Sign up
 //                 </button>
@@ -105,7 +105,7 @@
 
 //             <p className="mt-10 text-center text-sm/6 text-gray-500">
 //               Not a member?{' '}
-//               <a href="#" className="font-semibold text-blue-500 hover:text-indigo-500">
+//               <a href="#" className="font-semibold text-blue-500 hover:text-blue-500">
 //                 Start a 14 day free trial
 //               </a>
 //             </p>
@@ -161,17 +161,17 @@ const Signup = () => {
         <section className="text-gray-600 body-font">
           <div className="container px-5 py-2 mx-auto">
             <div className="flex flex-col text-center w-full mb-2">
-              <h2 className="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">ROOF PARTY POLAROID</h2>
-              <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Master Cleanse Reliac Heirloom</h1>
+              
+              <h1 className="sm:text-4xl text-3xl font-bold title-font mb-4 text-gray-900">Get Started With Orbit</h1>
               <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-                Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.
+              Using a work email helps find teammates and boost collaboration.
               </p>
             </div>
           </div>
         </section>
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-            <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
+            <h2 className="mt-1 text-center text-xl/9 font-bold tracking-tight text-gray-900">
               Sign up your account
             </h2>
           </div>
@@ -220,7 +220,7 @@ const Signup = () => {
               <div>
                 <button
                   type="submit"
-                  className="flex w-full justify-center rounded-md bg-blue-500 px-3 py-1 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+                  className="flex w-full justify-center rounded-md bg-blue-500 px-3 py-1 text-sm/6 font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
                 >
                   Sign up
                 </button>
@@ -228,16 +228,26 @@ const Signup = () => {
               <SignUpWithGoogle/>
             </form>
 
-            <p className="mt-10 text-center text-sm/6 text-gray-500">
-              Not a member?{' '}
-              <a href="#" className="font-semibold text-blue-500 hover:text-indigo-500">
-                Start a 14 day free trial
-              </a>
-            </p>
+            <div className="mt-10 text-center text-sm text-gray-500 justify-center">
+  <label className="flex items-center space-x-2 justify-center">
+    <input type="checkbox" className="form-checkbox text-blue-500" />
+    <span>
+      I agree to the{' '}
+      <a href="#" className="font-semibold text-blue-500 hover:text-blue-700">
+        Terms of Service
+      </a>{' '}
+      and{' '}
+      <a href="#" className="font-semibold text-blue-500 hover:text-blue-700">
+        Privacy Policy
+      </a>.
+    </span>
+  </label>
+</div>
+
           </div>
         </div>
       </div>
-      <SignUpFooter />
+      {/* <SignUpFooter /> */}
     </div>
   );
 };

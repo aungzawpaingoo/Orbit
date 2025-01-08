@@ -9,10 +9,14 @@ import DataCenterDetails from '../components/PricingScreenComp/DataCenterDetails
 const Pricing = () => {
   return (
     <div className='w-full h-full bg-white'>
+      
+      <div className='py-10'>
       <PricingDataCards/>
+      </div>
+      
       <PricingTableComparison/>
-      <SafeGurardInfo/>
-      <DataCenterDetails/>
+      {/* <SafeGurardInfo/>
+      <DataCenterDetails/> */}
       <FooterComponent/>
     </div>
   )

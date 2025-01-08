@@ -4,6 +4,9 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 import { useNavigate } from 'react-router-dom';
 import LoginWithGoogle from '../components/LoginWithGoogle';
+import Logo from '../assets/LogoWithTextAlign.png'
+import SignUpFooter from '../components/SignUpScreenComp/SignUpFooter';
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -45,8 +48,8 @@ const Login = () => {
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             alt="Your Company"
-            src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
-            className="mx-auto h-10 w-auto"
+            src={Logo}
+            className="mx-auto h-12 w-44 object-cover"
           />
           <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
             Sign in to your account
@@ -107,7 +110,7 @@ const Login = () => {
           </form>
         </div>
       </div>
-      
+      {/* <SignUpFooter /> */}
     </div>
   );
 };

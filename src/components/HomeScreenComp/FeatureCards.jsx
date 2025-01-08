@@ -10,12 +10,12 @@ const FeatureCards = () => {
       <div className="container mx-auto bg-white">
         <div className="flex flex-wrap w-full mb-12">
           <div className="lg:w-1/2 w-full mb-6 lg:mb-0">
-            <h1 className="text-3xl lg:text-4xl font-medium title-font mb-2 text-gray-900">
+            <h1 className="text-3xl lg:text-4xl font-bold title-font mb-2 text-gray-900">
               Empower Your Team with Orbit's Project Management Tools
             </h1>
             <div className="h-1 w-20 bg-indigo-500 rounded"></div>
           </div>
-          <p className="lg:w-1/2 w-full leading-relaxed text-gray-500">
+          <p className="lg:w-1/2 w-full leading-relaxed text-gray-500 font-normal">
             Manage your projects with precision. Orbit helps your teams stay on track, collaborate efficiently, and meet deadlines with ease.
           </p>
         </div>

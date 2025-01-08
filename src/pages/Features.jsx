@@ -10,13 +10,37 @@ import FooterComponent from '../components/HomeScreenComp/FooterComponent'
 const Features = () => {
   return (
     <div className='w-full h-full bg-white'>
+     
+     
+     <div className='py-10'>
      <FeaturesHero/>
+     </div>
+     
+     
+     <div className='py-10'>
      <InfoTab/>
+     </div>
+     
+     
+     <div className='py-10'>
      <AdditionalInfoGallery/>
+     </div>
+     
+     <div className='py-10'>
      <ScalableCard/>
-     <DesignBanner/>
+     </div>
+
+
+     {/* <DesignBanner/> */}
+
+     <div className='py-10'>
      <UsersDetails/>
+     </div>
+
+     <div className='py-10'>
      <FooterComponent/>
+     </div>
+    
     </div>
   )
 }
