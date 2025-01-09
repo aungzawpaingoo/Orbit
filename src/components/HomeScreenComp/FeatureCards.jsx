@@ -13,7 +13,7 @@ const FeatureCards = () => {
             <h1 className="text-3xl lg:text-4xl font-bold title-font mb-2 text-gray-900">
               Empower Your Team with Orbit's Project Management Tools
             </h1>
-            <div className="h-1 w-20 bg-indigo-500 rounded"></div>
+            <div className="h-1 w-20 bg-blue-500 rounded"></div>
           </div>
           <p className="lg:w-1/2 w-full leading-relaxed text-gray-500 font-normal">
             Manage your projects with precision. Orbit helps your teams stay on track, collaborate efficiently, and meet deadlines with ease.
@@ -31,7 +31,7 @@ const FeatureCards = () => {
                   />
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font mb-2">
+                  <h3 className="tracking-widest text-blue-500 text-xs font-medium title-font mb-2">
                     {getCardSubtitle(idx)}
                   </h3>
                   <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
