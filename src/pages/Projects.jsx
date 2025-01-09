@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import CustomAppBar from '../components/CustomAppBar';
 import ProjectTable from '../components/AppComponents/ProjectsComp/ProjectTable';
 import { Box, Modal, Typography, TextField, Select, MenuItem, Button, Avatar, Icon } from '@mui/material';
 import TitleBreadCrump from '../components/AppComponents/CommonComp/TitleBreadCrump';
+import { UserContext } from '../data/Context/UserContext';
 
 const Projects = () => {
+
+  const { user } = useContext(UserContext);
+
   const [open, setOpen] = useState(false);
   const [formValues, setFormValues] = useState({
     projectName: '',
@@ -48,6 +52,7 @@ const Projects = () => {
       <CustomAppBar onCreateProject={handleOpen} />
       <div className='px-10 bg-white'>
         <div className='py-5'>
+          <h1>{user?.disName}</h1>
           <TitleBreadCrump titleOne={"All Projects"} titleTwo={"Table View"} titleThree={"Project Lists"} />
         </div>
         <Box sx={{ padding: 0, width: 'full' }}>
