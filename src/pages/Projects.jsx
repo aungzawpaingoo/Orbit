@@ -52,9 +52,11 @@ const Projects = () => {
       <CustomAppBar onCreateProject={handleOpen} />
       <div className='px-10 bg-white'>
         <div className='py-5'>
-          <h1>{user?.disName}</h1>
-          <TitleBreadCrump titleOne={"All Projects"} titleTwo={"Table View"} titleThree={"Project Lists"} />
+          
+          {/* <TitleBreadCrump titleOne={"All Projects"} titleTwo={"Table View"} titleThree={"Project Lists"} /> */}
+          <h1 className='font-bold text-2xl font-sans'>Welcome back, {user?.displayName}</h1>
         </div>
+        
         <Box sx={{ padding: 0, width: 'full' }}>
           <ProjectTable />
         </Box>
