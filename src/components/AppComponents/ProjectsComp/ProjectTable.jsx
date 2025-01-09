@@ -154,18 +154,18 @@ const ProjectTable = () => {
   return (
     <TableContainer component={Paper} sx={{ borderRadius: 1, boxShadow:'none' }}>
       <Table>
-        <TableHead sx={{ backgroundColor: '#212121' }}>
+        <TableHead sx={{ backgroundColor: 'white' }}>
           <TableRow>
-            <TableCell sx={{ color: '#fff', fontWeight: 'bold', fontSize: 14, padding: '8px 16px' }}>
+            <TableCell sx={{ color: 'black', fontWeight: 'bold', fontSize: 14, padding: '8px 16px' }}>
               Name
             </TableCell>
-            <TableCell sx={{ color: '#fff', fontWeight: 'bold', fontSize: 14, padding: '8px 16px' }}>
+            <TableCell sx={{ color: 'black', fontWeight: 'bold', fontSize: 14, padding: '8px 16px' }}>
               Key
             </TableCell>
-            <TableCell sx={{ color: '#fff', fontWeight: 'bold', fontSize: 14, padding: '8px 16px' }}>
+            <TableCell sx={{ color: 'black', fontWeight: 'bold', fontSize: 14, padding: '8px 16px' }}>
               Type
             </TableCell>
-            <TableCell sx={{ color: '#fff', fontWeight: 'bold', fontSize: 14, padding: '8px 16px' }}>
+            <TableCell sx={{ color: 'black', fontWeight: 'bold', fontSize: 14, padding: '8px 16px' }}>
               Product Owner
             </TableCell>
           </TableRow>

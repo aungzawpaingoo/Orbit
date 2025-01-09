@@ -8,6 +8,7 @@ import DesignBanner from '../components/FeatureScreenComp/DesignBanner'
 import FooterComponent from '../components/HomeScreenComp/FooterComponent'
 
 const Features = () => {
+  
   return (
     <div className='w-full h-full bg-white'>
      

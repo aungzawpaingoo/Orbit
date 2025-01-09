@@ -2,8 +2,16 @@ import React from 'react';
 import reportGIF from '../../assets/chart-kanban.png';
 import collabGIF from '../../assets/team-check-alt.png';
 import taskGIF from '../../assets/responsability.png';
+import { useNavigate } from 'react-router-dom';
 
 const TeamFeature = () => {
+
+  const navigate = useNavigate();
+
+  const navigateToSignup = () => {
+    navigate('/signUp');
+  };
+
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-24 mx-auto">
@@ -59,7 +67,7 @@ const TeamFeature = () => {
             </div>
           </div>
         </div>
-        <button className="flex mx-auto mt-16 text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">
+        <button onClick={navigateToSignup} className="flex mx-auto mt-16 text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">
           Get Started with Orbit
         </button>
       </div>

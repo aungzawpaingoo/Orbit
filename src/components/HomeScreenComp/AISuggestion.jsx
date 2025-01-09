@@ -1,8 +1,17 @@
 import React from 'react';
 import AIIcon from '../../assets/react.svg';
 import AICover from '../../assets/planet (1).png';
+import { useNavigate } from 'react-router-dom';
 
 const AISuggestion = () => {
+
+  const navigate = useNavigate();
+
+  const navigateToSignup = () => {
+    navigate('/signUp');
+  };
+
+
   return (
     <div className="w-full h-screen bg-gradient-to-br from-blue-300 via-blue-600 to-blue-800 flex flex-col items-center justify-center">
 
@@ -18,7 +27,7 @@ const AISuggestion = () => {
         Let Orbit’s AI-powered suggestions help you plan your next big step. Our intelligent assistant
         analyzes your goals and automatically generates tasks and action items to ensure your success.
       </h3>
-      <button className="px-8 py-4 bg-white text-blue-500 font-semibold rounded-md transition duration-300 hover:bg-blue-100">
+      <button onClick={navigateToSignup} className="px-8 py-4 bg-white text-blue-500 font-semibold rounded-md transition duration-300 hover:bg-blue-100">
         Explore Orbit Intelligence
       </button>
     </div>

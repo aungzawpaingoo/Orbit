@@ -8,6 +8,8 @@ import TeamFeature from '../components/HomeScreenComp/TeamFeature';
 import CustomerStories from '../components/HomeScreenComp/CustomStories';
 
 const Home = () => {
+
+  
   return (
     <div className="w-full h-full bg-white">
       

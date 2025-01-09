@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { Box, Typography, Paper, Card, CardContent, Grid } from '@mui/material';
-import todoImg from '../../../assets/to-do.png';
+import todoImg from '../../../assets/icons8-bookmark-480 (1).png';
 import pendingImg from '../../../assets/pending.png';
 import inProgressImg from '../../../assets/arrow-progress.png';
 import completedImg from '../../../assets/clipboard-check.png';
@@ -108,9 +108,9 @@ const Column = ({ name, items, onDrop }) => {
             src={columnImage}
             alt="status"
             style={{
-              width: '30px',
-              height: '30px',
-              borderRadius: '0%',
+              width: '20px',
+              height: '20px',
+              borderRadius: '2px',
               objectFit: 'cover',
             }}
           />
@@ -208,10 +208,10 @@ const DraggableItem = ({ item, index, fromCol }) => {
               src={taskImage}
               alt="status"
               style={{
-                width: '30px',
-                height: '30px',
-                borderRadius: '8px',
-                objectFit: 'cover',
+                width: '20px',
+                height: '20px',
+                borderRadius: '2px',
+                objectFit: 'contain',
               }}
             />
           </Grid>

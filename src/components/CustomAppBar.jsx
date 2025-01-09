@@ -106,7 +106,7 @@ const CustomAppBar = ({ onCreateProject }) => {
           <img
             src={AppBarIcon}
             alt="App Bar"
-            style={{ height: '60px', width: '120px', objectFit: 'cover' }}
+            style={{ height: '60px', width: '170px', objectFit: 'cover' }}
           />
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>

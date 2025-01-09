@@ -7,7 +7,7 @@ import CardIMGFour from '../../assets/cardFour.png';
 const FeatureCards = () => {
   return (
     <section className="text-gray-600 body-font bg-white py-12">
-      <div className="container mx-auto bg-white">
+      <div className="container mx-auto bg-white px-6 lg:px-12">
         <div className="flex flex-wrap w-full mb-12">
           <div className="lg:w-1/2 w-full mb-6 lg:mb-0">
             <h1 className="text-3xl lg:text-4xl font-bold title-font mb-2 text-gray-900">
@@ -52,7 +52,7 @@ const FeatureCards = () => {
 
 const getImageUrl = (idx) => {
   const images = [CardIMGOne, CardIMGTwo, CardIMGThree, CardIMGFour];
-  return images[idx % images.length]; // Return the corresponding image for each card
+  return images[idx % images.length];
 };
 
 const getCardSubtitle = (idx) => {

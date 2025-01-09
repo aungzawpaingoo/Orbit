@@ -108,8 +108,8 @@ const Column = ({ name, items, onDrop }) => {
             src={columnImage}
             alt="status"
             style={{
-              width: '30px',
-              height: '30px',
+              width: '20px',
+              height: '20px',
               borderRadius: '0%',
               objectFit: 'cover',
             }}

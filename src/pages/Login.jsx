@@ -27,9 +27,6 @@ const Login = () => {
         alert('Please verify your email before logging in!');
       }
 
-      // await signInWithEmailAndPassword(auth, email, password);
-      // alert('User Login Successful');
-      // navigate('/projects');
       setEmail('');
       setPassword('');
     } catch (error) {
