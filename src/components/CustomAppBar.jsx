@@ -15,11 +15,11 @@ import SettingsIcon from '../assets/settings (1).png';
 import { UserContext } from '../data/Context/UserContext';
 
 
+
 const CustomAppBar = ({ onCreateProject }) => {
   const { user } = useContext(UserContext);
 
-  //console.log('User from context:', user);
-
+  
   return (
     <AppBar position="static" sx={{ backgroundColor: 'white', padding: 0, boxShadow: 'none', borderBottomColor: 'lightgray', borderWidth: 1 }}>
       <Toolbar sx={{ justifyContent: 'space-between' }}>
