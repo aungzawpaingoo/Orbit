@@ -10,19 +10,19 @@ import completedImg from '../../../assets/clipboard-check.png';
 const DragandDropView = () => {
   const [columns, setColumns] = useState({
     ToDo: [
-      { task: 'Design the UI', details: 'Create a responsive UI using Figma.', date: '2025-01-05' },
-      { task: 'Set up backend', details: 'Create API routes and integrate with database.', date: '2025-01-07' },
+      { task: 'Design the UI', details: 'Create a responsive UI .....', date: '2025-01-05' },
+      { task: 'Set up backend', details: 'Create API routes and .....', date: '2025-01-07' },
     ],
     InProgress: [
-      { task: 'Develop features', details: 'Develop authentication and authorization system.', date: '2025-01-03' },
-      { task: 'Integrate API', details: 'Connect frontend to backend API for data fetching.', date: '2025-01-04' },
+      { task: 'Develop features', details: 'Develop authentication and .....', date: '2025-01-03' },
+      { task: 'Integrate API', details: 'Connect frontend to backend .....', date: '2025-01-04' },
     ],
     Review: [
-      { task: 'Code review', details: 'Review pull request for API endpoints.', date: '2025-01-02' },
+      { task: 'Code review', details: 'Review pull request for .....', date: '2025-01-02' },
     ],
     Done: [
-      { task: 'Deploy to production', details: 'Deploy app to AWS EC2 instance.', date: '2025-01-01' },
-      { task: 'Team meeting', details: 'Discuss upcoming sprint tasks.', date: '2025-01-01' },
+      { task: 'Deploy to production', details: 'Deploy app to AWS .....', date: '2025-01-01' },
+      { task: 'Team meeting', details: 'Discuss upcoming .....', date: '2025-01-01' },
     ],
   });
 
@@ -40,11 +40,13 @@ const DragandDropView = () => {
 
   return (
     <DndProvider backend={HTML5Backend}>
+     
       <Box sx={{ display: 'flex', gap: 2, marginTop: 4, backgroundColor: 'white', minHeight: '100vh', justifyContent: 'center' }}>
         {Object.keys(columns).map((col, colIndex) => (
           <Column key={colIndex} name={col} items={columns[col]} onDrop={(item) => handleDrop(item, col)} />
         ))}
       </Box>
+    
     </DndProvider>
   );
 };
@@ -150,6 +152,7 @@ const Column = ({ name, items, onDrop }) => {
           maxHeight: 'calc(100vh - 180px)',
           overflowY: 'auto',
           paddingRight: '8px',
+          
         }}
       >
         {items.map((item, index) => (
@@ -201,7 +204,7 @@ const DraggableItem = ({ item, index, fromCol }) => {
         },
       }}
     >
-      <CardContent sx={{ padding: 2 }}>
+      <CardContent sx={{ padding: 3 }}>
         <Grid container spacing={2} alignItems="center">
           <Grid item>
             <img
@@ -222,11 +225,12 @@ const DraggableItem = ({ item, index, fromCol }) => {
                 fontWeight: 500,
                 color: 'black',
                 fontFamily: 'Roboto, sans-serif',
-                fontSize: '14px',
+                fontSize: '13px',
               }}
             >
               {item.task}
             </Typography>
+           
             <Typography
               variant="body2"
               color="textSecondary"
@@ -237,6 +241,8 @@ const DraggableItem = ({ item, index, fromCol }) => {
             >
               {item.details}
             </Typography>
+
+
           </Grid>
         </Grid>
       </CardContent>

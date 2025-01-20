@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -16,6 +16,7 @@ import { NavLink } from 'react-router-dom';
 import Logo from '../assets/cardImg.png';
 import { useProject } from '../data/Context/ProjectContext';
 import { getAuth, signOut } from 'firebase/auth'; // Import Firebase auth
+import { UserContext } from '../data/Context/UserContext';
 
 library.add(faTableColumns, faRectangleList, faPersonRunning, faCalendarDays, faBullseye, faBug, faSignOutAlt);
 
@@ -31,11 +32,14 @@ const Sidebar = () => {
 
   const { project } = useProject();
 
+  const { user, setUser } = useContext(UserContext);
+
   const handleLogout = () => {
     const auth = getAuth();
     signOut(auth)
       .then(() => {
         alert('User signed out successfully.');
+        setUser(null);
         window.location.href = '/';
        })
       .catch((error) => {
@@ -48,8 +52,8 @@ const Sidebar = () => {
       <div className="py-6 flex items-center bg-white w-full px-4">
         <img src={project.image} alt="Logo" className="w-11 h-11 object-cover rounded-md border-white border-2" />
         <div className="pl-4">
-          <h4 className="font-bold text-sm">{project.name}</h4>
-          <h4 className="font-semibold text-xs">{project.type}</h4>
+          <h4 className="font-bold text-sm mb-2 mt-0">{project.name}</h4>
+          <h4 className="font-semibold text-xs mb-2 mt-2">{project.type}</h4>
         </div>
       </div>
       <div className="flex-1 flex justify-center">

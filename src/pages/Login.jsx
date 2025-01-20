@@ -119,7 +119,6 @@ const Login = () => {
           </form>
         </div>
       </div>
-      {/* <SignUpFooter /> */}
     </div>
   );
 };

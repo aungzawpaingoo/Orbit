@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Video from '../../assets/OrbitVideo.mp4';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,6 +9,9 @@ const IntoComponent = () => {
   const navigateToSignup = () => {
     navigate('/signUp');
   };
+
+
+  const [companyName, setCompanyName] = useState('');
 
   
   return (
@@ -33,7 +36,9 @@ const IntoComponent = () => {
         <h5 className="text-sm text-gray-500 mb-4">
           Find teammates, plus keep work and life separate by using your work email.
         </h5>
-        <button onClick={navigateToSignup} className="bg-blue-500 text-white py-2 px-4 rounded w-full mb-4">Sign Up</button>
+
+        <button  onClick={navigateToSignup} className="bg-blue-500 text-white py-2 px-4 rounded w-full mb-4">Sign Up</button>
+        
         <h3 className="text-center text-gray-600 mb-2 text-xs">Or Continue With</h3>
         <div className="flex justify-center space-x-4">
           <button

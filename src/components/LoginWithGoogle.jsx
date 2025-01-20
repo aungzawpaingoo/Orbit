@@ -2,49 +2,33 @@ import { GoogleAuthProvider, signInWithPopup, signInWithRedirect } from 'firebas
 import React, { useContext } from 'react';
 import { auth } from '../firebase';
 import { useNavigate } from 'react-router-dom';
-import {UserContext} from '../data/Context/UserContext'
+import { UserContext } from '../data/Context/UserContext'
 
 
 const LoginWithGoogle = () => {
     const navigate = useNavigate();
-    const {setUser} = useContext(UserContext);
+    const { setUser } = useContext(UserContext);
 
     function googleLogin() {
         const provider = new GoogleAuthProvider();
 
-        
-        // signInWithPopup(auth, provider)
-        //     .then(async (result) => {
-        //         const user = result.user;
-        //         setUser({
-        //             displayName: user.displayName,
-        //             email: user.email,
-        //             photoURL: user.photoURL,
-        //         });
-        //         alert('Login Successful')
-        //         navigate('/projects');
-        //     })
-        //     .catch((error) => {
-        //         console.error('Error during Google Login:', error);
-        //         alert('Login failed. Please try again.');
-        //     });
 
         signInWithPopup(auth, provider)
-    .then((result) => {
-        const user = result.user;
-        //console.log('Logged-in user:', user);
-        setUser({
-            displayName: user.displayName,
-            email: user.email,
-            photoURL: user.photoURL,
-        });
-        alert('Login Successful');
-        navigate('/projects');
-    })
-    .catch((error) => {
-        //console.error('Error during Google Login:', error);
-        alert('Login failed. Please try again.');
-    });
+            .then((result) => {
+                const user = result.user;
+                //console.log('Logged-in user:', user);
+                setUser({
+                    displayName: user.displayName,
+                    email: user.email,
+                    photoURL: user.photoURL,
+                });
+                alert('Login Successful');
+                navigate('/projects');
+            })
+            .catch((error) => {
+                //console.error('Error during Google Login:', error);
+                alert('Login failed. Please try again.');
+            });
     }
 
     return (
@@ -66,4 +50,3 @@ const LoginWithGoogle = () => {
 };
 
 export default LoginWithGoogle;
-

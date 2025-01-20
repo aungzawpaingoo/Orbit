@@ -1,3 +1,124 @@
+// import React, { useEffect, useState } from 'react';
+// import {
+//   Table,
+//   TableBody,
+//   TableCell,
+//   TableContainer,
+//   TableHead,
+//   TableRow,
+//   Paper,
+//   Avatar,
+//   Box,
+//   Typography,
+// } from '@mui/material';
+// import { useNavigate } from 'react-router-dom';
+// import { useProject } from '../../../data/Context/ProjectContext';
+
+// import apiClient from '../../../api/apiClient';
+
+// const ProjectTable = () => {
+
+//   const [projects, setProjects] = useState([]);
+
+
+//   useEffect(() => {
+//     const fetchProjects = async () => {
+//       try {
+//         const response = await apiClient.get('/projects');
+//         setProjects(response.data);
+//         console.log('Projects:', response.data);
+//       } catch (error) {
+//         console.error('Error fetching projects:', error);
+//       }
+//     };
+
+//     fetchProjects();
+//   }, []);
+
+//   const navigate = useNavigate();
+//   const { setProject } = useProject();
+
+//   const handleRowClick = (project) => {
+//     setProject(project);
+//     navigate('/dashboard');
+//   };
+
+//   return (
+//     <TableContainer component={Paper} sx={{ borderRadius: 1, boxShadow: 'none' }}>
+//       <Table>
+//         <TableHead sx={{ backgroundColor: 'white' }}>
+//           <TableRow>
+//             <TableCell sx={{ color: 'black', fontWeight: 'semibold', fontSize: '13px', padding: '8px 16px' }}>
+//               Name
+//             </TableCell>
+//             <TableCell sx={{ color: 'black', fontWeight: 'semibold', fontSize: '13px', padding: '8px 16px' }}>
+//               Key
+//             </TableCell>
+//             <TableCell sx={{ color: 'black', fontWeight: 'semibold', fontSize: '13px', padding: '8px 16px' }}>
+//               Type
+//             </TableCell>
+//             <TableCell sx={{ color: 'black', fontWeight: 'semibold', fontSize: '13px', padding: '8px 16px' }}>
+//               Product Owner
+//             </TableCell>
+//           </TableRow>
+//         </TableHead>
+
+//         <TableBody>
+//           {projects.map((project) => (
+
+//             <TableRow
+//               key={project._id}
+//               onClick={() => handleRowClick(project)}
+//               sx={{
+//                 cursor: 'pointer',
+//                 backgroundColor: 'white',
+//                 height: '60px',
+//                 transition: 'background-color 0.3s',
+//                 '&:hover': { backgroundColor: '#ffffff' },
+//                 '&:last-child td': { borderBottom: 'none' },
+//               }}
+//             >
+//               <TableCell sx={{ padding: '8px 16px', borderBottom: 'none' }}>
+//                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
+//                   <img
+//                     src={project.image}
+//                     alt={project.name}
+//                     style={{ height: '28px', width: '28px', borderRadius: '3px', border: '1px solid lightgray', objectFit: 'cover' }}
+//                   />
+//                   <Typography variant="body2" fontWeight="semibold" sx={{ color: '#3B82F6' }}>
+//                     {project.name}
+//                   </Typography>
+//                 </Box>
+//               </TableCell>
+//               <TableCell sx={{ padding: '8px 16px', borderBottom: 'none' }}>
+//                 <Typography variant="body2" sx={{ color: 'black', fontWeight: 'normal' }}>
+//                   {project.key}
+//                 </Typography>
+//               </TableCell>
+//               <TableCell sx={{ padding: '8px 16px', borderBottom: 'none' }}>
+//                 <Typography variant="body2" sx={{ color: 'black' }}>
+//                   {project.type}
+//                 </Typography>
+//               </TableCell>
+//               <TableCell sx={{ padding: '8px 16px', borderBottom: 'none' }}>
+//                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+//                   <Avatar src={project.assigned.avatar} alt={project.assigned.name} sx={{ width: '24px', height: '24px' }} />
+//                   <Typography variant="body2" sx={{ color: 'black' }}>
+//                     {project.assigned.name}
+//                   </Typography>
+//                 </Box>
+//               </TableCell>
+//             </TableRow>
+//           ))}
+//         </TableBody>
+
+//       </Table>
+//     </TableContainer>
+//   );
+// };
+
+// export default ProjectTable;
+
 import React, { useEffect, useState } from 'react';
 import {
   Table,
@@ -10,28 +131,30 @@ import {
   Avatar,
   Box,
   Typography,
+  CircularProgress,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useProject } from '../../../data/Context/ProjectContext';
-
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import FolderOffIcon from '@mui/icons-material/FolderOff';
 import apiClient from '../../../api/apiClient';
 
 const ProjectTable = () => {
-
   const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
-  
   useEffect(() => {
     const fetchProjects = async () => {
       try {
         const response = await apiClient.get('/projects');
-        setProjects(response.data); 
-        console.log('Projects:', response.data);
+        setProjects(response.data);
       } catch (error) {
-        console.error('Error fetching projects:', error);
+        setError(true);
+      } finally {
+        setLoading(false);
       }
     };
-
     fetchProjects();
   }, []);
 
@@ -43,23 +166,48 @@ const ProjectTable = () => {
     navigate('/dashboard');
   };
 
+  if (loading) {
+    return (
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center',justifyContent:'center', height: '50vh' }}>
+        <CircularProgress />
+        <Typography variant="h6" sx={{ mt: 2, color: 'gray' }}>
+          Loading Projects...
+        </Typography>
+      </Box>
+    );
+  }
+
+  if (error) {
+    return (
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center',justifyContent:'center', height: '50vh' }}>
+        <ErrorOutlineIcon sx={{ fontSize: 48, color: '#EF4444' }} />
+        <Typography variant="h6" sx={{ mt: 2, color: '#EF4444', textAlign: 'center' }}>
+          Can't Fetch Data From the Backend<br />Please Try Again Or Contact The Developer
+        </Typography>
+      </Box>
+    );
+  }
+
+  if (projects.length === 0) {
+    return (
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center',justifyContent:'center', height: '50vh' }}>
+        <FolderOffIcon sx={{ fontSize: 48, color: '#9CA3AF' }} />
+        <Typography variant="h6" sx={{ mt: 2, color: '#9CA3AF', textAlign: 'center' }}>
+          No Projects Found
+        </Typography>
+      </Box>
+    );
+  }
+
   return (
-    <TableContainer component={Paper} sx={{ borderRadius: 1, boxShadow:'none' }}>
+    <TableContainer component={Paper} sx={{ borderRadius: 1, boxShadow: 'none' }}>
       <Table>
         <TableHead sx={{ backgroundColor: 'white' }}>
           <TableRow>
-            <TableCell sx={{ color: 'black', fontWeight: 'bold', fontSize: 14, padding: '8px 16px' }}>
-              Name
-            </TableCell>
-            <TableCell sx={{ color: 'black', fontWeight: 'bold', fontSize: 14, padding: '8px 16px' }}>
-              Key
-            </TableCell>
-            <TableCell sx={{ color: 'black', fontWeight: 'bold', fontSize: 14, padding: '8px 16px' }}>
-              Type
-            </TableCell>
-            <TableCell sx={{ color: 'black', fontWeight: 'bold', fontSize: 14, padding: '8px 16px' }}>
-              Product Owner
-            </TableCell>
+            <TableCell sx={{ color: 'black', fontWeight: 'semibold', fontSize: '13px', padding: '8px 16px' }}>Name</TableCell>
+            <TableCell sx={{ color: 'black', fontWeight: 'semibold', fontSize: '13px', padding: '8px 16px' }}>Key</TableCell>
+            <TableCell sx={{ color: 'black', fontWeight: 'semibold', fontSize: '13px', padding: '8px 16px' }}>Type</TableCell>
+            <TableCell sx={{ color: 'black', fontWeight: 'semibold', fontSize: '13px', padding: '8px 16px' }}>Product Owner</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -69,37 +217,45 @@ const ProjectTable = () => {
               onClick={() => handleRowClick(project)}
               sx={{
                 cursor: 'pointer',
+                backgroundColor: 'white',
+                height: '60px',
                 transition: 'background-color 0.3s',
                 '&:hover': { backgroundColor: '#ffffff' },
-                '&:last-child td': { borderBottom: 0 },
+                '&:last-child td': { borderBottom: 'none' },
               }}
             >
-              <TableCell sx={{ padding: '8px 16px' }}>
+              <TableCell sx={{ padding: '8px 16px', borderBottom: 'none' }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
                   <img
                     src={project.image}
                     alt={project.name}
-                    style={{ height: '40px', width: '40px', borderRadius: '6px' }}
+                    style={{
+                      height: '28px',
+                      width: '28px',
+                      borderRadius: '3px',
+                      border: '1px solid lightgray',
+                      objectFit: 'cover',
+                    }}
                   />
-                  <Typography variant="body2" fontWeight="bold" sx={{ color: '#424242' }}>
+                  <Typography variant="body2" fontWeight="semibold" sx={{ color: '#3B82F6' }}>
                     {project.name}
                   </Typography>
                 </Box>
               </TableCell>
-              <TableCell sx={{ padding: '8px 16px' }}>
-                <Typography variant="body2" sx={{ color: '#1E88E5', fontWeight: 'medium' }}>
+              <TableCell sx={{ padding: '8px 16px', borderBottom: 'none' }}>
+                <Typography variant="body2" sx={{ color: 'black', fontWeight: 'normal' }}>
                   {project.key}
                 </Typography>
               </TableCell>
-              <TableCell sx={{ padding: '8px 16px' }}>
-                <Typography variant="body2" sx={{ color: '#757575' }}>
+              <TableCell sx={{ padding: '8px 16px', borderBottom: 'none' }}>
+                <Typography variant="body2" sx={{ color: 'black' }}>
                   {project.type}
                 </Typography>
               </TableCell>
-              <TableCell sx={{ padding: '8px 16px' }}>
+              <TableCell sx={{ padding: '8px 16px', borderBottom: 'none' }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                  <Avatar src={project.assigned.avatar} alt={project.assigned.name} sx={{ width: 32, height: 32 }} />
-                  <Typography variant="body2" sx={{ color: '#616161' }}>
+                  <Avatar src={project.assigned.avatar} alt={project.assigned.name} sx={{ width: '24px', height: '24px' }} />
+                  <Typography variant="body2" sx={{ color: 'black' }}>
                     {project.assigned.name}
                   </Typography>
                 </Box>
@@ -113,3 +269,4 @@ const ProjectTable = () => {
 };
 
 export default ProjectTable;
+

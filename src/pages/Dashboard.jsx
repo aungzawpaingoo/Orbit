@@ -4,6 +4,7 @@ import TitleBreadCrump from '../components/AppComponents/CommonComp/TitleBreadCr
 import ResponsiveGrid from '../components/AppComponents/DashboardComp/ResponsiveGrid';
 import { useLocation } from 'react-router-dom';
 import { useProject } from '../data/Context/ProjectContext';
+import InAppBar from '../components/AppComponents/CommonComp/InAppBar';
 
 const Dashboard = () => {
 
@@ -11,6 +12,11 @@ const Dashboard = () => {
 
 
   return (
+
+    <>
+
+    
+
     <div className="flex h-screen">
       
       
@@ -30,6 +36,8 @@ const Dashboard = () => {
       </div>
 
     </div>
+
+    </>
   );
 };
 

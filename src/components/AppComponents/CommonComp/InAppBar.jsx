@@ -19,7 +19,7 @@ const InAppBar = () => {
   const { user } = useContext(UserContext);
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'blue', padding: 0, boxShadow: 'none', borderBottomColor: 'lightgray', borderWidth: 0 }}>
+    <AppBar position="static" sx={{ display:'flex', backgroundColor: 'blue', width:'90%',marginLeft:'10%'}}>
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         <Box>
           <img
