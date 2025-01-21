@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Sidebar from '../components/Sidebar';
 import TitleBreadCrump from '../components/AppComponents/CommonComp/TitleBreadCrump';
 import { useLocation } from 'react-router-dom';
@@ -9,8 +9,14 @@ import GoalsOperationBar from '../components/AppComponents/GoalsComp/GoalsOperat
 const Goals = () => {
 
   const { project } = useProject();
+  const projectId = project?._id;
 
 
+    useEffect(() => {
+      console.log('Project:', projectId);
+    }, [projectId]);
+
+    
   return (
     <div className="flex h-screen">
       
@@ -28,7 +34,7 @@ const Goals = () => {
 
         <GoalsOperationBar/>
 
-        <GoalsTracker/>
+        <GoalsTracker projectId={projectId}/>
         
       </div>
 

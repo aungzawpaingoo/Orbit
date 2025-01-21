@@ -12,11 +12,14 @@ import {
   faSignOutAlt, // Import the logout icon
 } from '@fortawesome/free-solid-svg-icons';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Logo from '../assets/cardImg.png';
 import { useProject } from '../data/Context/ProjectContext';
 import { getAuth, signOut } from 'firebase/auth'; // Import Firebase auth
 import { UserContext } from '../data/Context/UserContext';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Button } from '@mui/material';
+
 
 library.add(faTableColumns, faRectangleList, faPersonRunning, faCalendarDays, faBullseye, faBug, faSignOutAlt);
 
@@ -33,6 +36,7 @@ const Sidebar = () => {
   const { project } = useProject();
 
   const { user, setUser } = useContext(UserContext);
+  const navigation = useNavigate();
 
   const handleLogout = () => {
     const auth = getAuth();
@@ -41,21 +45,40 @@ const Sidebar = () => {
         alert('User signed out successfully.');
         setUser(null);
         window.location.href = '/';
-       })
+      })
       .catch((error) => {
         console.error('Error signing out:', error);
       });
   };
 
   return (
-    <div className="h-screen w-60 bg-white text-black flex flex-col items-center border border-gray-200">
-      <div className="py-6 flex items-center bg-white w-full px-4">
-        <img src={project.image} alt="Logo" className="w-11 h-11 object-cover rounded-md border-white border-2" />
-        <div className="pl-4">
-          <h4 className="font-bold text-sm mb-2 mt-0">{project.name}</h4>
-          <h4 className="font-semibold text-xs mb-2 mt-2">{project.type}</h4>
-        </div>
-      </div>
+    <div className="h-screen w-64 bg-white text-black flex flex-col items-center border border-gray-200">
+
+<div className="w-full py-3 flex items-center justify-between bg-white px-3 shadow-none">
+  <Button 
+    variant="text" 
+    color="black" 
+    onClick={() => navigation('/projects')}
+    sx={{
+      textTransform: 'none',
+      fontSize: '11px',
+      fontWeight: 'medium',
+      padding: '2px 4px',
+    }}
+  >
+    ⬅️Back to Projects List
+  </Button>
+</div>
+
+<div className="py-4 flex items-center justify-start bg-white w-full px-3 shadow-sm border-t border-gray-200">
+  <img src={project.image} alt="Logo" className="w-11 h-11 object-cover rounded-md border-2" />
+  <div className="pl-2">
+    <h4 className="font-medium text-xs mb-1">{project.name}</h4>
+    <h5 className="font-normal text-xs text-gray-500">{project.type}</h5>
+  </div>
+</div>
+
+
       <div className="flex-1 flex justify-center">
         <div className="flex flex-col gap-0 w-full">
           {menuItems.map((item) => (
@@ -63,8 +86,7 @@ const Sidebar = () => {
               key={item.id}
               to={item.href}
               className={({ isActive }) =>
-                `flex items-center gap-4 px-12 py-3 w-full ${
-                  isActive ? 'bg-blue-50 rounded-md font-semibold text-blue-500' : 'hover:bg-white'
+                `flex items-center gap-4 px-12 py-3 w-full ${isActive ? 'bg-blue-50 rounded-md font-semibold text-blue-500' : 'hover:bg-white'
                 }`
               }
             >
