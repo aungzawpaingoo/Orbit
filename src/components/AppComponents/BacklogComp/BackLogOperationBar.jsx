@@ -283,11 +283,13 @@ const BackLogOperationBar = ({ addTask }) => {
         <Avatar src={mainAvatarImage} sx={{ width: '40px', height: '40px' }} />
       </Box>
 
-      <Box display="flex">
-        {[1, 2, 3, 4].map((_, index) => (
-          <Select key={index} sx={selectStyle} />
-        ))}
-      </Box>
+      <Box display="flex" flexDirection="row" flexWrap="wrap">
+      {[1, 2, 3, 4].map((_, index) => (
+        <Select key={index} sx={selectStyle}>
+          <MenuItem value={index + 1}>Option {index + 1}</MenuItem>
+        </Select>
+      ))}
+    </Box>
 
       <Button
         onClick={handleOpenModal}

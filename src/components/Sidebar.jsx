@@ -70,7 +70,7 @@ const Sidebar = () => {
   </Button>
 </div>
 
-<div className="py-4 flex items-center justify-start bg-white w-full px-3 shadow-sm border-t border-gray-200">
+<div className="py-5 mb-4 flex items-center justify-start bg-white w-full px-3 shadow-sm border-t border-gray-200">
   <img src={project.image} alt="Logo" className="w-11 h-11 object-cover rounded-md border-2" />
   <div className="pl-2">
     <h4 className="font-medium text-xs mb-1">{project.name}</h4>
@@ -86,7 +86,7 @@ const Sidebar = () => {
               key={item.id}
               to={item.href}
               className={({ isActive }) =>
-                `flex items-center gap-4 px-12 py-3 w-full ${isActive ? 'bg-blue-50 rounded-md font-semibold text-blue-500' : 'hover:bg-white'
+                `flex items-center gap-4 px-16 py-3 w-full ${isActive ? 'bg-blue-50 rounded-sm font-normal text-blue-500' : 'hover:bg-white'
                 }`
               }
             >
