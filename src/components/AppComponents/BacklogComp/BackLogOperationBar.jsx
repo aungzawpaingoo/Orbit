@@ -1,209 +1,11 @@
-// import { Avatar, Select, TextField, Box, Button, MenuItem, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel } from '@mui/material';
-// import AddIcon from '@mui/icons-material/Add';
-// import React, { useState } from 'react';
-
-// const BackLogOperationBar = ({ addTask }) => {
-//   const selectStyle = {
-//     marginRight: '8px',
-//     width: '150px',
-//     height: '40px',
-//     '.MuiSelect-select': {
-//       height: '40px',
-//     },
-//   };
-
-//   const [openModal, setOpenModal] = useState(false);
-//   const [taskName, setTaskName] = useState('');
-//   const [priority, setPriority] = useState('');
-//   const [status, setStatus] = useState('');
-//   const [assignee, setAssignee] = useState('');
-//   const [dueDate, setDueDate] = useState('');
-//   const [estimatedHours, setEstimatedHours] = useState('');
-//   const [formError, setFormError] = useState('');
-
-//   const assignees = [
-//     { name: 'John Doe', avatar: 'https://images.squarespace-cdn.com/content/v1/54ab66dee4b0da465dd06039/1476559947089-11G8JA4HI2NYQUNDXYND/Justin+Wilson9075.jpg' },
-//     { name: 'Jane Smith', avatar: 'https://static.vecteezy.com/system/resources/thumbnails/044/045/851/small_2x/portrait-of-a-smiling-business-woman-in-white-background-photo.jpg' }
-//   ];
-
-//   const mainAvatarImage = "https://www.shutterstock.com/image-photo/head-shot-portrait-close-smiling-600nw-1714666150.jpg";
-
-//   const handleOpenModal = () => setOpenModal(true);
-//   const handleCloseModal = () => {
-//     setOpenModal(false);
-//     // Reset form fields
-//     setTaskName('');
-//     setPriority('');
-//     setStatus('');
-//     setAssignee('');
-//     setDueDate('');
-//     setEstimatedHours('');
-//     setFormError('');
-//   };
-
-//   const handleFormSubmit = () => {
-//     if (!taskName || !priority || !status || !assignee || !dueDate || !estimatedHours) {
-//       setFormError('All fields are required!');
-//       return;
-//     }
-
-//     // Prepare the new task object
-//     const newTask = {
-//       name: taskName,
-//       priority,
-//       status,
-//       assignee,
-//       dueDate,
-//       estimatedHours,
-//     };
-
-//     // Pass the new task to the parent component (Backlog)
-//     addTask(newTask);
-
-//     handleCloseModal(); // Close the modal and reset the form
-//   };
-
-//   return (
-//     <Box className="bg-white w-full" display="flex" alignItems="center">
-//       <TextField
-//         sx={{
-//           marginRight: '16px',
-//           width: '260px',
-//           height: '40px',
-//           '& .MuiInputBase-root': {
-//             height: '40px',
-//           },
-//         }}
-//         type='search'
-//         placeholder='Search'
-//       />
-
-//       <Box sx={{ marginRight: '16px' }}>
-//         <Avatar src={mainAvatarImage} sx={{ width: '40px', height: '40px' }} />
-//       </Box>
-
-//       <Box display="flex">
-//         {[1, 2, 3, 4].map((_, index) => (
-//           <Select key={index} sx={selectStyle} />
-//         ))}
-//       </Box>
-
-//       <Button
-//         onClick={handleOpenModal}
-//         variant="contained"
-//         startIcon={<AddIcon />}
-//         sx={{
-//           color: 'white',
-//           textTransform: 'none',
-//           backgroundColor: '#3B82F6',
-//           '&:hover': {
-//             backgroundColor: '#2563EB',
-//           },
-//         }}
-//       >
-//         Create
-//       </Button>
-
-//       {/* Modal for task creation */}
-//       <Dialog open={openModal} onClose={handleCloseModal} maxWidth="sm" fullWidth>
-//         <DialogTitle>Create Task</DialogTitle>
-//         <DialogContent className="space-y-4">
-//           {formError && (
-//             <Box className="text-red-500 text-sm">{formError}</Box>
-//           )}
-
-//           <TextField
-//             label="Task Name"
-//             fullWidth
-//             variant="outlined"
-//             value={taskName}
-//             onChange={(e) => setTaskName(e.target.value)}
-//             required
-//           />
-
-//           <FormControl fullWidth required>
-//             <InputLabel>Priority</InputLabel>
-//             <Select
-//               value={priority}
-//               onChange={(e) => setPriority(e.target.value)}
-//               label="Priority"
-//             >
-//               <MenuItem value="Low">Low</MenuItem>
-//               <MenuItem value="Medium">Medium</MenuItem>
-//               <MenuItem value="High">High</MenuItem>
-//             </Select>
-//           </FormControl>
-
-//           <FormControl fullWidth required>
-//             <InputLabel>Status</InputLabel>
-//             <Select
-//               value={status}
-//               onChange={(e) => setStatus(e.target.value)}
-//               label="Status"
-//             >
-//               <MenuItem value="Todo">Todo</MenuItem>
-//               <MenuItem value="In Progress">In Progress</MenuItem>
-//               <MenuItem value="Completed">Completed</MenuItem>
-//             </Select>
-//           </FormControl>
-
-//           <FormControl fullWidth required>
-//             <InputLabel>Assignee</InputLabel>
-//             <Select
-//               value={assignee}
-//               onChange={(e) => setAssignee(e.target.value)}
-//               label="Assignee"
-//             >
-//               {assignees.map((person) => (
-//                 <MenuItem key={person.name} value={person.name}>
-//                   <Avatar src={person.avatar} sx={{ width: 24, height: 24, marginRight: 1 }} />
-//                   {person.name}
-//                 </MenuItem>
-//               ))}
-//             </Select>
-//           </FormControl>
-
-//           <TextField
-//             label="Due Date"
-//             type="date"
-//             fullWidth
-//             variant="outlined"
-//             value={dueDate}
-//             onChange={(e) => setDueDate(e.target.value)}
-//             required
-//             InputLabelProps={{
-//               shrink: true,
-//             }}
-//           />
-
-//           <TextField
-//             label="Estimated Hours"
-//             type="time"
-//             fullWidth
-//             variant="outlined"
-//             value={estimatedHours}
-//             onChange={(e) => setEstimatedHours(e.target.value)}
-//             required
-//           />
-//         </DialogContent>
-//         <DialogActions>
-//           <Button onClick={handleCloseModal} color="secondary">Cancel</Button>
-//           <Button onClick={handleFormSubmit} color="primary">Create</Button>
-//         </DialogActions>
-//       </Dialog>
-//     </Box>
-//   );
-// };
-
-// export default BackLogOperationBar;
-
-
-
-import { Avatar, Select, TextField, Box, Button, MenuItem, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel } from '@mui/material';
+import { Avatar, Select, TextField, Box, Button, MenuItem, Dialog, DialogActions, DialogContent, DialogTitle, Typography, Divider, Checkbox } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import React, { useState } from 'react';
+import { Check, CheckBox, FileUpload, FileUploadOutlined, Upload, UploadFile } from '@mui/icons-material';
 
-const BackLogOperationBar = ({ addTask }) => {
+const BackLogOperationBar = () => {
+  const [openModal, setOpenModal] = useState(false);
+
   const selectStyle = {
     marginRight: '8px',
     width: '150px',
@@ -213,59 +15,14 @@ const BackLogOperationBar = ({ addTask }) => {
     },
   };
 
-  const [openModal, setOpenModal] = useState(false);
-  const [taskName, setTaskName] = useState('');
-  const [priority, setPriority] = useState('');
-  const [status, setStatus] = useState('');
-  const [assignee, setAssignee] = useState('');
-  const [dueDate, setDueDate] = useState('');
-  const [estimatedHours, setEstimatedHours] = useState('');
-  const [formError, setFormError] = useState('');
-
-  const assignees = [
-    { name: 'John Doe', avatar: 'https://images.squarespace-cdn.com/content/v1/54ab66dee4b0da465dd06039/1476559947089-11G8JA4HI2NYQUNDXYND/Justin+Wilson9075.jpg' },
-    { name: 'Jane Smith', avatar: 'https://static.vecteezy.com/system/resources/thumbnails/044/045/851/small_2x/portrait-of-a-smiling-business-woman-in-white-background-photo.jpg' }
-  ];
-
   const mainAvatarImage = "https://www.shutterstock.com/image-photo/head-shot-portrait-close-smiling-600nw-1714666150.jpg";
 
   const handleOpenModal = () => setOpenModal(true);
-  const handleCloseModal = () => {
-    setOpenModal(false);
-    // Reset form fields
-    setTaskName('');
-    setPriority('');
-    setStatus('');
-    setAssignee('');
-    setDueDate('');
-    setEstimatedHours('');
-    setFormError('');
-  };
-
-  const handleFormSubmit = () => {
-    if (!taskName || !priority || !status || !assignee || !dueDate || !estimatedHours) {
-      setFormError('All fields are required!');
-      return;
-    }
-
-    // Prepare the new task object
-    const newTask = {
-      name: taskName,
-      priority,
-      status,
-      assignee,
-      dueDate,
-      estimatedHours,
-    };
-
-    // Pass the new task to the parent component (Backlog)
-    addTask(newTask);
-
-    handleCloseModal(); // Close the modal and reset the form
-  };
+  const handleCloseModal = () => setOpenModal(false);
 
   return (
     <Box className="bg-white w-full" display="flex" alignItems="center">
+      {/* Search field */}
       <TextField
         sx={{
           marginRight: '16px',
@@ -275,22 +32,25 @@ const BackLogOperationBar = ({ addTask }) => {
             height: '40px',
           },
         }}
-        type='search'
-        placeholder='Search'
+        type="search"
+        placeholder="Search"
       />
 
+      {/* Avatar */}
       <Box sx={{ marginRight: '16px' }}>
         <Avatar src={mainAvatarImage} sx={{ width: '40px', height: '40px' }} />
       </Box>
 
+      {/* Dropdowns */}
       <Box display="flex" flexDirection="row" flexWrap="wrap">
-      {[1, 2, 3, 4].map((_, index) => (
-        <Select key={index} sx={selectStyle}>
-          <MenuItem value={index + 1}>Option {index + 1}</MenuItem>
-        </Select>
-      ))}
-    </Box>
+        {[1, 2, 3, 4].map((_, index) => (
+          <Select key={index} sx={selectStyle}>
+            <MenuItem value={index + 1}>Option {index + 1}</MenuItem>
+          </Select>
+        ))}
+      </Box>
 
+      {/* Create Button */}
       <Button
         onClick={handleOpenModal}
         variant="contained"
@@ -307,91 +67,150 @@ const BackLogOperationBar = ({ addTask }) => {
         Create
       </Button>
 
-      {/* Modal for task creation */}
-      <Dialog open={openModal} onClose={handleCloseModal} maxWidth="sm" fullWidth>
-        <DialogTitle>Create Task</DialogTitle>
-        <DialogContent className="space-y-4">
-          {formError && (
-            <Box className="text-red-500 text-sm">{formError}</Box>
-          )}
+      {/* Modal */}
+      <Dialog open={openModal} onClose={handleCloseModal} maxWidth="md" fullWidth sx={{ backgroundColor: '' }}>
+        <DialogTitle sx={{backgroundColor:'#3B82F6', marginBottom:'18px',color:'white'}}>Create</DialogTitle>
+        <DialogContent>
 
-          <TextField
-            label="Task Name"
-            fullWidth
-            variant="outlined"
-            value={taskName}
-            onChange={(e) => setTaskName(e.target.value)}
-            required
-          />
+          <Typography variant='body2' color='gray'>Required fields are marked with an asterisk *</Typography>
 
-          <FormControl fullWidth required>
-            <InputLabel>Priority</InputLabel>
+          <div className='my-6'>
+            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Project*</Typography>
             <Select
-              value={priority}
-              onChange={(e) => setPriority(e.target.value)}
-              label="Priority"
-            >
-              <MenuItem value="Low">Low</MenuItem>
-              <MenuItem value="Medium">Medium</MenuItem>
-              <MenuItem value="High">High</MenuItem>
-            </Select>
-          </FormControl>
+              color='black'
+              sx={{ width: '250px', height: '40px' }} />
+          </div>
 
-          <FormControl fullWidth required>
-            <InputLabel>Status</InputLabel>
+          <div className='my-6'>
+            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Task Type*</Typography>
             <Select
-              value={status}
-              onChange={(e) => setStatus(e.target.value)}
-              label="Status"
-            >
-              <MenuItem value="Todo">Todo</MenuItem>
-              <MenuItem value="In Progress">In Progress</MenuItem>
-              <MenuItem value="Completed">Completed</MenuItem>
-            </Select>
-          </FormControl>
+              color='black'
+              sx={{ width: '250px', height: '40px' }} />
+          </div>
 
-          <FormControl fullWidth required>
-            <InputLabel>Assignee</InputLabel>
+          <div className='my-1'>
+            <Divider />
+          </div>
+
+          <div className='my-6'>
+            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Status*</Typography>
             <Select
-              value={assignee}
-              onChange={(e) => setAssignee(e.target.value)}
-              label="Assignee"
+              color='black'
+              sx={{ width: '250px', height: '40px' }} />
+            <Typography variant='body2' color='gray' sx={{ marginTop: '2px' }}>This is the initial status upon creation</Typography>
+          </div>
+
+          <div className='my-6'>
+            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Summary*</Typography>
+            <TextField
+              color='black'
+              sx={{ width: '500px', height: '40px' }} />
+          </div>
+
+          <div className='my-10'>
+            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Description</Typography>
+            <TextField inputMode='text' multiline sx={{ width: '800px' }} />
+          </div>
+
+          <div className='my-6'>
+            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Assignee</Typography>
+            <Select
+              color='black'
+              sx={{ width: '250px', height: '40px' }} />
+            <Button variant='text' color='primary' sx={{ marginTop: '2px', textTransform: 'none' }}>Assigned To Me</Button>
+          </div>
+
+          <div className='my-6'>
+            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Labels</Typography>
+            <Select
+              color='black'
+              sx={{ width: '250px', height: '40px' }} />
+          </div>
+
+          <div className='my-6'>
+            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Parent</Typography>
+            <Select
+              color='black'
+              sx={{ width: '250px', height: '40px' }} />
+            <Typography variant='body2' color='gray' sx={{ marginTop: '2px' }}>
+              Your issue type hierarchy determines the issues you can select here.</Typography>
+          </div>
+
+          <div className='my-6'>
+            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Team</Typography>
+            <Select
+              color='black'
+              sx={{ width: '250px', height: '40px' }} />
+            <Typography variant='body2' color='gray' sx={{ marginTop: '2px' }}>Associates a team to an issue. You can use this field to search and filter issues by team.
+            </Typography>
+          </div>
+
+          <div className='my-6'>
+            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Reporter*</Typography>
+            <Select
+              color='black'
+              sx={{ width: '250px', height: '40px' }} />
+          </div>
+
+
+          <div className='my-6'>
+            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Attachments</Typography>
+            <Box
+              sx={{
+                border: '2px dashed grey',
+                borderRadius: '8px',
+                padding: '16px',
+                textAlign: 'center',
+                cursor: 'pointer',
+              }}
             >
-              {assignees.map((person) => (
-                <MenuItem key={person.name} value={person.name}>
-                  <Avatar src={person.avatar} sx={{ width: 24, height: 24, marginRight: 1 }} />
-                  {person.name}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+              <Typography variant='body2' sx={{ marginBottom: '10px' }}>Drag and drop files here or click to upload</Typography>
+              <Button variant='outlined' component='label'>
+                Upload File
+                <input hidden accept='' type='file' />
+              </Button>
+            </Box>
+          </div>
 
-          <TextField
-            label="Due Date"
-            type="date"
-            fullWidth
-            variant="outlined"
-            value={dueDate}
-            onChange={(e) => setDueDate(e.target.value)}
-            required
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
 
-          <TextField
-            label="Estimated Hours"
-            type="time"
-            fullWidth
-            variant="outlined"
-            value={estimatedHours}
-            onChange={(e) => setEstimatedHours(e.target.value)}
-            required
-          />
+          <div className='my-6'>
+            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Linked Issues</Typography>
+            <div className='flex flex-col'>
+              <Select
+                color='black'
+                sx={{ width: '250px', height: '40px', marginTop: '4px', marginBottom: '10px' }} />
+              <Select
+                color='black'
+                sx={{ width: '250px', height: '40px', marginTop: '4px', marginBottom: '10px' }} />
+            </div>
+
+          </div>
+
+          <div className='my-6'>
+            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Restrict to</Typography>
+            <Select
+              color='black'
+              sx={{ width: '250px', height: '40px' }} />
+
+          </div>
+
+
+          <div className='my-6'>
+            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Flagged</Typography>
+            <div className='flex items-center'>
+              <Checkbox />
+              <Typography variant='body2'>Impediment</Typography>
+            </div>
+            <Typography variant='caption' color='gray'>Allows to flag tasks with impediments.</Typography>
+          </div>
+
+
+
+
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCloseModal} color="secondary">Cancel</Button>
-          <Button onClick={handleFormSubmit} color="primary">Create</Button>
+          <Button onClick={handleCloseModal} variant='outlined'>Close</Button>
+          <Button onClick={handleCloseModal} variant='contained' sx={{backgroundColor:'#3B82F6'}}>Create</Button>
         </DialogActions>
       </Dialog>
     </Box>

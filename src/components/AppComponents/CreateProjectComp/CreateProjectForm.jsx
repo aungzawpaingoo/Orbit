@@ -1,11 +1,13 @@
-import { Box, Grid, Stepper, Step, StepLabel, Button } from '@mui/material';
+import { Box, Grid, Stepper, Step, StepLabel, Button, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import StepOneform from '../../../components/AppComponents/CreateProjectComp/StepOneform';
+import StepTwoForm from './StepTwoForm';
+import StepThreeForm from './StepThreeForm';
 
 const CreateProjectForm = () => {
   const [activeStep, setActiveStep] = useState(0);
 
-  const steps = ['Step 1', 'Step 2', 'Step 3'];
+  const steps = ['Project Template', 'Project Details', 'Final Review'];
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -29,17 +31,18 @@ const CreateProjectForm = () => {
             width: '100%', 
             alignItems: 'center', 
             height: '100%', 
+            borderColor:'gray',
             borderTopLeftRadius: 10, 
             borderBottomLeftRadius: 10, 
-            backgroundColor: '#3B82F6', 
+            backgroundColor: 'white', 
             overflow: 'hidden' }}>
             <Stepper orientation="vertical" activeStep={activeStep}>
               {steps.map((label, index) => (
-                <Step key={index} sx={{ '& .MuiStepLabel-label': { color: 'white' } }}>
+                <Step key={index} sx={{ '& .MuiStepLabel-label': { color: 'black' } }}>
                   <StepLabel
                     StepIconProps={{
                       sx: {
-                        color: 'black', 
+                        color: 'blue', 
                         '&.Mui-active': { color: 'blue' }, 
                         '&.Mui-completed': { color: 'green' }, 
                       },
@@ -60,17 +63,17 @@ const CreateProjectForm = () => {
             height: '100%', 
             backgroundColor: 'white', 
             overflow: 'hidden' }}>
-            <h1>Form</h1>
+            <Typography variant='body1' color='gray'>Please choose the project template from below</Typography>
 
             {activeStep === 0 && <div><StepOneform /></div>}
-            {activeStep === 1 && <div>Form content for Step 2</div>}
-            {activeStep === 2 && <div>Form content for Step 3</div>}
+            {activeStep === 1 && <div><StepTwoForm/></div>}
+            {activeStep === 2 && <div><StepThreeForm/></div>}
 
             <Box sx={{ marginTop: '20px' }}>
-              <Button disabled={activeStep === 0} onClick={handleBack} sx={{ marginRight: '10px' }}>
+              <Button variant='outlined' disabled={activeStep === 0} onClick={handleBack} sx={{ marginRight: '10px' }}>
                 Back
               </Button>
-              <Button onClick={handleNext}>
+              <Button variant='contained' onClick={handleNext}>
                 {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
               </Button>
             </Box>

@@ -25,12 +25,13 @@ const Backlog = () => {
 
         <h1 className="text-2xl font-bold my-4">Backlog</h1>
 
-        {/* Operation Bar for creating tasks */}
+        
         <BackLogOperationBar projectId={projectId} setTasks={setTasks} />
 
         <div className="overflow-y-auto max-h-[650px]">
-          {/* Data Table to display tasks */}
+          
           <BacklogDataTable tasks={tasks} setTasks={setTasks} projectId={projectId} />
+          
         </div>
       </div>
     </div>

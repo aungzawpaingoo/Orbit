@@ -9,19 +9,21 @@ import {
   faCalendarDays,
   faBullseye,
   faBug,
-  faSignOutAlt, // Import the logout icon
+  faSignOutAlt,
+  faFile,
+  faFileInvoice,
 } from '@fortawesome/free-solid-svg-icons';
 
 import { NavLink, useNavigate } from 'react-router-dom';
 import Logo from '../assets/cardImg.png';
 import { useProject } from '../data/Context/ProjectContext';
-import { getAuth, signOut } from 'firebase/auth'; // Import Firebase auth
+import { getAuth, signOut } from 'firebase/auth'; 
 import { UserContext } from '../data/Context/UserContext';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 
 
-library.add(faTableColumns, faRectangleList, faPersonRunning, faCalendarDays, faBullseye, faBug, faSignOutAlt);
+library.add(faTableColumns, faRectangleList, faPersonRunning, faCalendarDays, faBullseye, faBug, faSignOutAlt,faFile,faFileInvoice);
 
 const Sidebar = () => {
   const menuItems = [
@@ -31,6 +33,7 @@ const Sidebar = () => {
     { id: 'calendar', label: 'Calendar', icon: <FontAwesomeIcon icon="fa-solid fa-calendar-days" size="sm" />, href: '/calendar' },
     { id: 'goals', label: 'Goals', icon: <FontAwesomeIcon icon="fa-solid fa-bullseye" size="sm" />, href: '/goals' },
     { id: 'issues', label: 'Issues', icon: <FontAwesomeIcon icon="fa-solid fa-bug" size="sm" />, href: '/issues' },
+    { id: 'issues', label: 'Forms', icon: <FontAwesomeIcon icon="fa-solid fa-file-invoice" size="sm" />, href: '/forms' },
   ];
 
   const { project } = useProject();
@@ -78,6 +81,7 @@ const Sidebar = () => {
   </div>
 </div>
 
+    <Typography variant='body2' sx={{color:'gray',alignSelf:'flex-start', marginLeft:'12px', marginBottom:'10px'}}>Planning</Typography>
 
       <div className="flex-1 flex justify-center">
         <div className="flex flex-col gap-0 w-full">
@@ -86,7 +90,7 @@ const Sidebar = () => {
               key={item.id}
               to={item.href}
               className={({ isActive }) =>
-                `flex items-center gap-4 px-16 py-3 w-full ${isActive ? 'bg-blue-50 rounded-sm font-normal text-blue-500' : 'hover:bg-white'
+                `flex items-start gap-6 px-16 py-3 w-full ${isActive ? 'bg-blue-50 rounded-sm font-normal text-blue-500' : 'hover:bg-white'
                 }`
               }
             >
@@ -96,6 +100,8 @@ const Sidebar = () => {
           ))}
         </div>
       </div>
+
+      <Typography></Typography>
       <div className="w-full px-12 py-4">
         <button
           onClick={handleLogout}

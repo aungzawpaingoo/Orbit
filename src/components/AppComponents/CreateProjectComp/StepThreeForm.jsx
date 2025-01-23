@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent, CardMedia, Typography, Button } from '@mui/material';
 
-const StepOneform = () => {
+const StepThreeForm = () => {
 
   const templates = [
     {
@@ -36,7 +36,7 @@ const StepOneform = () => {
   return (
     <div>
 
-      <Typography variant='h4' sx={{ fontWeight: 'bold', marginTop: '10px', marginBottom: '10px' }}>Project Setup Details Step One</Typography>
+      <Typography variant='h4' sx={{ fontWeight: 'bold', marginTop: '10px', marginBottom: '10px' }}>Project Setup Details Step Three</Typography>
 
       <Typography variant='caption' sx={{marginTop:'10px',marginBottom:'10px', color:'gray'}}>
         Select from a variety of professionally crafted templates to kickstart 
@@ -88,4 +88,4 @@ const StepOneform = () => {
   );
 };
 
-export default StepOneform;
+export default StepThreeForm;

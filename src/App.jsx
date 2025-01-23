@@ -21,6 +21,7 @@ import CreateProject from './pages/CreateProject';
 import HomeImage from './assets/LogoWithTextAlign.png';
 import { UserContext } from './data/Context/UserContext';
 import ProtectedRoute from './components/ProtectedRoute';
+import Forms from './pages/Forms';
 import '@fontsource/rubik'
 import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 
@@ -208,6 +209,7 @@ const App = () => {
             <Route path="/calendar" element={<ProtectedRoute><Calendar /></ProtectedRoute>} />
             <Route path="/goals" element={<ProtectedRoute><Goals /></ProtectedRoute>} />
             <Route path="/issues" element={<ProtectedRoute><Issues /></ProtectedRoute>} />
+            <Route path="/forms" element={<ProtectedRoute><Forms/></ProtectedRoute>}/>
             <Route path="/createProject"  element={<ProtectedRoute><CreateProject /></ProtectedRoute>} />
             <Route path="/projectSetup" element={<ProtectedRoute><ProjectSetup/></ProtectedRoute>}/>
           </Routes>
