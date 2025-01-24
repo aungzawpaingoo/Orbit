@@ -69,7 +69,7 @@ const BackLogOperationBar = () => {
 
       {/* Modal */}
       <Dialog open={openModal} onClose={handleCloseModal} maxWidth="md" fullWidth sx={{ backgroundColor: '' }}>
-        <DialogTitle sx={{backgroundColor:'#3B82F6', marginBottom:'18px',color:'white'}}>Create</DialogTitle>
+        <DialogTitle sx={{ backgroundColor: '#3B82F6', marginBottom: '18px', color: 'white' }}>Create</DialogTitle>
         <DialogContent>
 
           <Typography variant='body2' color='gray'>Required fields are marked with an asterisk *</Typography>
@@ -77,15 +77,39 @@ const BackLogOperationBar = () => {
           <div className='my-6'>
             <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Project*</Typography>
             <Select
+              value={''}
               color='black'
-              sx={{ width: '250px', height: '40px' }} />
+              sx={{ width: '250px', height: '40px' }}
+              displayEmpty 
+              renderValue={(selected) => {
+                if (!selected) {
+                  return <span style={{ fontSize: "12px", color: "black" }}>Select Project</span>;
+                }
+                return selected;
+              }}>
+              <MenuItem value="" disabled>
+                Select Project
+              </MenuItem>
+            </Select>
           </div>
 
           <div className='my-6'>
             <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Task Type*</Typography>
             <Select
+              value={''}
               color='black'
-              sx={{ width: '250px', height: '40px' }} />
+              sx={{ width: '250px', height: '40px' }}
+              displayEmpty
+              renderValue={(selected) => {
+                if (!selected) {
+                  return <span style={{ fontSize: "12px", color: "black" }}>Select Type</span>;
+                }
+                return selected;
+              }}>
+              <MenuItem value="" disabled>
+                Select Project
+              </MenuItem>
+            </Select>
           </div>
 
           <div className='my-1'>
@@ -95,43 +119,89 @@ const BackLogOperationBar = () => {
           <div className='my-6'>
             <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Status*</Typography>
             <Select
+              value={''}
               color='black'
-              sx={{ width: '250px', height: '40px' }} />
+              sx={{ width: '250px', height: '40px' }} displayEmpty
+              renderValue={(selected) => {
+                if (!selected) {
+                  return <span style={{ fontSize: "12px", color: "black" }}>Select Status Type</span>;
+                }
+                return selected;
+              }}>
+              <MenuItem value="" disabled>
+                Select Project
+              </MenuItem>
+            </Select>
             <Typography variant='body2' color='gray' sx={{ marginTop: '2px' }}>This is the initial status upon creation</Typography>
           </div>
 
           <div className='my-6'>
             <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Summary*</Typography>
             <TextField
+              placeholder='Summary of the task you want to create'
               color='black'
               sx={{ width: '500px', height: '40px' }} />
           </div>
 
           <div className='my-10'>
             <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Description</Typography>
-            <TextField inputMode='text' multiline sx={{ width: '800px' }} />
+            <TextField 
+            placeholder='Short Description of the task you want to create' inputMode='text' multiline sx={{ width: '800px' }} />
           </div>
 
           <div className='my-6'>
             <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Assignee</Typography>
             <Select
+              value={''}
               color='black'
-              sx={{ width: '250px', height: '40px' }} />
-            <Button variant='text' color='primary' sx={{ marginTop: '2px', textTransform: 'none' }}>Assigned To Me</Button>
+              sx={{ width: '250px', height: '40px' }} displayEmpty
+              renderValue={(selected) => {
+                if (!selected) {
+                  return <span style={{ fontSize: "12px", color: "black" }}>Select Assignee</span>;
+                }
+                return selected;
+              }}>
+              <MenuItem value="" disabled>
+                Select Project
+              </MenuItem>
+            </Select>
+            <Button variant='text' size='medium' color='primary' sx={{ marginTop: '2px', textTransform: 'none' }}>Assigned To Me</Button>
           </div>
 
           <div className='my-6'>
             <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Labels</Typography>
             <Select
+              value={''}
               color='black'
-              sx={{ width: '250px', height: '40px' }} />
+              sx={{ width: '250px', height: '40px' }} displayEmpty
+              renderValue={(selected) => {
+                if (!selected) {
+                  return <span style={{ fontSize: "12px", color: "black" }}>Select Labels</span>;
+                }
+                return selected;
+              }}>
+              <MenuItem value="" disabled>
+                Select Project
+              </MenuItem>
+            </Select>
           </div>
 
           <div className='my-6'>
             <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Parent</Typography>
             <Select
+              value={''}
               color='black'
-              sx={{ width: '250px', height: '40px' }} />
+              sx={{ width: '250px', height: '40px' }} displayEmpty
+              renderValue={(selected) => {
+                if (!selected) {
+                  return <span style={{ fontSize: "12px", color: "black" }}>Select Parent</span>;
+                }
+                return selected;
+              }}>
+              <MenuItem value="" disabled>
+                Select Project
+              </MenuItem>
+            </Select>
             <Typography variant='body2' color='gray' sx={{ marginTop: '2px' }}>
               Your issue type hierarchy determines the issues you can select here.</Typography>
           </div>
@@ -139,8 +209,19 @@ const BackLogOperationBar = () => {
           <div className='my-6'>
             <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Team</Typography>
             <Select
+              value={''}
               color='black'
-              sx={{ width: '250px', height: '40px' }} />
+              sx={{ width: '250px', height: '40px' }} displayEmpty
+              renderValue={(selected) => {
+                if (!selected) {
+                  return <span style={{ fontSize: "12px", color: "black" }}>Select Team</span>;
+                }
+                return selected;
+              }}>
+              <MenuItem value="" disabled>
+                Select Project
+              </MenuItem>
+            </Select>
             <Typography variant='body2' color='gray' sx={{ marginTop: '2px' }}>Associates a team to an issue. You can use this field to search and filter issues by team.
             </Typography>
           </div>
@@ -148,8 +229,19 @@ const BackLogOperationBar = () => {
           <div className='my-6'>
             <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Reporter*</Typography>
             <Select
+              value={''}
               color='black'
-              sx={{ width: '250px', height: '40px' }} />
+              sx={{ width: '250px', height: '40px' }} displayEmpty
+              renderValue={(selected) => {
+                if (!selected) {
+                  return <span style={{ fontSize: "12px", color: "black" }}>Select Project</span>;
+                }
+                return selected;
+              }}>
+              <MenuItem value="" disabled>
+                Select Project
+              </MenuItem>
+            </Select>
           </div>
 
 
@@ -177,11 +269,33 @@ const BackLogOperationBar = () => {
             <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Linked Issues</Typography>
             <div className='flex flex-col'>
               <Select
+                value={''}
                 color='black'
-                sx={{ width: '250px', height: '40px', marginTop: '4px', marginBottom: '10px' }} />
+                sx={{ width: '250px', height: '40px', marginTop: '4px', marginBottom: '10px' }} displayEmpty
+                renderValue={(selected) => {
+                  if (!selected) {
+                    return <span style={{ fontSize: "12px", color: "black" }}>Select Linked Issues 1</span>;
+                  }
+                  return selected;
+                }}>
+                <MenuItem value="" disabled>
+                  Select Project
+                </MenuItem>
+              </Select>
               <Select
+                value={''}
                 color='black'
-                sx={{ width: '250px', height: '40px', marginTop: '4px', marginBottom: '10px' }} />
+                sx={{ width: '250px', height: '40px', marginTop: '4px', marginBottom: '10px' }} displayEmpty
+                renderValue={(selected) => {
+                  if (!selected) {
+                    return <span style={{ fontSize: "12px", color: "black" }}>Select Linked Issues 2</span>;
+                  }
+                  return selected;
+                }}>
+                <MenuItem value="" disabled>
+                  Select Project
+                </MenuItem>
+              </Select>
             </div>
 
           </div>
@@ -189,8 +303,19 @@ const BackLogOperationBar = () => {
           <div className='my-6'>
             <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Restrict to</Typography>
             <Select
+              value={''}
               color='black'
-              sx={{ width: '250px', height: '40px' }} />
+              sx={{ width: '250px', height: '40px' }} displayEmpty
+              renderValue={(selected) => {
+                if (!selected) {
+                  return <span style={{ fontSize: "12px", color: "black" }}>Select Restriction</span>;
+                }
+                return selected;
+              }}>
+              <MenuItem value="" disabled >
+                Select Project
+              </MenuItem>
+            </Select>
 
           </div>
 
@@ -210,7 +335,7 @@ const BackLogOperationBar = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseModal} variant='outlined'>Close</Button>
-          <Button onClick={handleCloseModal} variant='contained' sx={{backgroundColor:'#3B82F6'}}>Create</Button>
+          <Button onClick={handleCloseModal} variant='contained' sx={{ backgroundColor: '#3B82F6' }}>Create</Button>
         </DialogActions>
       </Dialog>
     </Box>

@@ -333,7 +333,7 @@ const CustomAppBar = ({ setProjects }) => {
         <DialogContent>
           
           <div className='my-4'>
-          <Typography>Select Assigned User*</Typography>
+          <Typography variant='body2'>Select Assigned User*</Typography>
             <TextField
               label="Project Name"
               name="name"
@@ -344,7 +344,7 @@ const CustomAppBar = ({ setProjects }) => {
             />
           </div>
           <div className='my-4'>
-          <Typography>Select Assigned User*</Typography>
+          <Typography variant='body2'>Select Assigned User*</Typography>
             <TextField
               label="Key"
               name="key"
@@ -355,7 +355,7 @@ const CustomAppBar = ({ setProjects }) => {
             />
           </div>
           <div className='my-4'>
-          <Typography>Select Assigned User*</Typography>
+          <Typography variant='body2'>Select Assigned User*</Typography>
             <TextField
               label="Type"
               name="type"
@@ -367,7 +367,7 @@ const CustomAppBar = ({ setProjects }) => {
           </div>
           <div className='my-4'>
             <Box mt={2}>
-              <Typography>Select Assigned User*</Typography>
+              <Typography variant='body2'>Select Assigned User*</Typography>
               <Select
                 value={users.find((user) => user.name === formData.assigned.name)?.id || ''}
                 onChange={handleUserSelect}
@@ -398,7 +398,7 @@ const CustomAppBar = ({ setProjects }) => {
           
 
           <Box mt={4}>
-          <Typography>Select Assigned User*</Typography>
+          <Typography variant='body2'>Select Assigned User*</Typography>
             <input type='file' accept='image/*' onChange={handleImageChange} style={{marginTop:'10px'}}/>
             {formData.image && <img src={`data:image/png;base64,${formData.image}`} alt="Project" className='w-100px' />}
           </Box>
@@ -423,7 +423,7 @@ const CustomAppBar = ({ setProjects }) => {
     <Grid container spacing={2}>
       <Grid item xs={12} sm={6}>
         <div className='my-4'>
-          <Typography>Select Assigned User*</Typography>
+          <Typography variant='body2'>Select Assigned User*</Typography>
           <TextField
             label="Project Name"
             name="name"
@@ -436,7 +436,7 @@ const CustomAppBar = ({ setProjects }) => {
       </Grid>
       <Grid item xs={12} sm={6}>
         <div className='my-4'>
-          <Typography>Select Assigned User*</Typography>
+          <Typography variant='body2'>Select Assigned User*</Typography>
           <TextField
             label="Key"
             name="key"
@@ -449,7 +449,7 @@ const CustomAppBar = ({ setProjects }) => {
       </Grid>
       <Grid item xs={12} sm={6}>
         <div className='my-4'>
-          <Typography>Select Assigned User*</Typography>
+          <Typography variant='body2'>Select Assigned User*</Typography>
           <TextField
             label="Type"
             name="type"
@@ -462,7 +462,7 @@ const CustomAppBar = ({ setProjects }) => {
       </Grid>
       <Grid item xs={12} sm={6}>
         <div className='my-6'>
-          <Typography>Select Assigned User*</Typography>
+          <Typography variant='body2'>Select Assigned User*</Typography>
           <Select
             value={users.find((user) => user.name === formData.assigned.name)?.id || ''}
             onChange={handleUserSelect}

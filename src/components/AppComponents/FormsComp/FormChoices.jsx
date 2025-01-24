@@ -5,20 +5,22 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import FormOne from '../../../assets/Brand Company Logo.png';
+import FormTwo from '../../../assets/Brand Company Logo (1).png';
 
 const cardData = [
   {
     id: 1,
     title: 'Blank Form',
     description: 'A basic blank form template to start with.',
-    image: 'https://images5.alphacoders.com/120/1208127.jpg',
+    image: FormOne,
     altText: 'Blank Form',
   },
   {
     id: 2,
     title: 'Feature Request',
     description: 'Submit your ideas for new features.',
-    image: 'https://images5.alphacoders.com/120/1208127.jpg',
+    image: FormTwo,
     altText: 'Feature Request',
   },
   {
@@ -61,13 +63,13 @@ export default function FormChoices() {
       {cardData.map((card) => (
         <Card
           key={card.id}
-          sx={{ maxWidth: '250px', cursor: 'pointer' }}
+          sx={{ width: '200px', cursor: 'pointer' }}
           onClick={() => handleCardClick(card.title)}
         >
           <CardMedia
             component="img"
             alt={card.altText}
-            height="140"
+            height="80"
             image={card.image}
           />
           <CardContent>
