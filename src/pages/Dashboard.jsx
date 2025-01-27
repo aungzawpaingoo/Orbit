@@ -5,6 +5,7 @@ import ResponsiveGrid from '../components/AppComponents/DashboardComp/Responsive
 import { useLocation } from 'react-router-dom';
 import { useProject } from '../data/Context/ProjectContext';
 import InAppBar from '../components/AppComponents/CommonComp/InAppBar';
+import { Typography } from '@mui/material';
 
 const Dashboard = () => {
 
@@ -29,7 +30,10 @@ const Dashboard = () => {
         
         <TitleBreadCrump titleOne={project.name} titleTwo={project.key} titleThree={"Report View"}/>
 
-        <h1 className="text-2xl font-bold my-4">Summary</h1>
+        {/* <h1 className="text-2xl font-bold my-4">Summary</h1> */}
+        <div className='my-4'>
+          <Typography variant='h5' sx={{fontWeight:'bold'}}>Summary</Typography>
+        </div>
 
         <ResponsiveGrid />
         

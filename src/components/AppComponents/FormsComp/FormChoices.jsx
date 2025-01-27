@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import FormOne from '../../../assets/Brand Company Logo.png';
-import FormTwo from '../../../assets/Brand Company Logo (1).png';
+import FormOne from '../../../assets/1.png';
+import FormTwo from '../../../assets/Brand Company Logo.png';
+import FormThree from '../../../assets/3.png';
+import FormFour from '../../../assets/4.png';
+import FormFive from '../../../assets/5.png';
+import { Dialog, DialogContent, DialogTitle } from '@mui/material';
 
 const cardData = [
   {
@@ -23,65 +25,111 @@ const cardData = [
     image: FormTwo,
     altText: 'Feature Request',
   },
+ 
   {
     id: 3,
-    title: 'Bug Report',
-    description: 'Report issues or bugs encountered.',
-    image: 'https://images5.alphacoders.com/120/1208127.jpg',
-    altText: 'Bug Report',
-  },
-  {
-    id: 4,
     title: 'Incident Report',
     description: 'Document any incidents in detail.',
-    image: 'https://images5.alphacoders.com/120/1208127.jpg',
+    image: FormThree,
     altText: 'Incident Report',
   },
+
   {
-    id: 5,
+    id: 4,
     title: 'Technical Review',
     description: 'Provide feedback on technical implementations.',
-    image: 'https://images5.alphacoders.com/120/1208127.jpg',
+    image: FormFour,
     altText: 'Technical Review',
   },
+
   {
-    id: 6,
+    id: 5,
     title: 'Change Request',
     description: 'Request changes to existing processes or systems.',
-    image: 'https://images5.alphacoders.com/120/1208127.jpg',
+    image: FormFive,
     altText: 'Change Request',
   },
 ];
 
 export default function FormChoices() {
-  const handleCardClick = (title) => {
-    alert(`You selected: ${title}`);
+
+  const [openDialog, setOpenDialog] = useState(false);
+  const [selectedCard, setSelectedCard] = useState(null);
+
+  const handleCardClick = (card) => {
+   setSelectedCard(card);
+   setOpenDialog(true);
   };
 
+  const handleClose = () => {
+   setOpenDialog(false);
+   setSelectedCard(null);
+  };
+
+
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+    <div
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: '10px',
+        justifyContent: 'flex-start',
+        padding: '20px',
+      }}
+    >
       {cardData.map((card) => (
         <Card
           key={card.id}
-          sx={{ width: '200px', cursor: 'pointer' }}
-          onClick={() => handleCardClick(card.title)}
+          sx={{
+            width: '220px',
+            height: '260px',
+            cursor: 'pointer',
+            borderRadius: '4px',
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+          onClick={() => handleCardClick(card)}
         >
           <CardMedia
             component="img"
             alt={card.altText}
-            height="80"
+            sx={{
+              height: '160px',
+              objectFit: 'cover',
+              borderRadius: '4px 4px 0 0',
+            }}
             image={card.image}
           />
-          <CardContent>
-            <Typography gutterBottom variant="body2" color='#3B82F6' component="div" sx={{fontWeight:'medium'}}>
+          <CardContent sx={{ padding: '8px', textAlign: 'left' }}>
+            <Typography
+              gutterBottom
+              variant="subtitle2"
+              color="#3B82F6"
+              sx={{ fontWeight: '', marginBottom: '5px' }}
+            >
               {card.title}
             </Typography>
-            <Typography variant="subtitle2" sx={{ color: 'black', fontWeight:'normal' }}>
+            <Typography
+              variant="caption"
+              sx={{ color: 'gray', fontSize: '13px', fontWeight:'semibold' }}
+            >
               {card.description}
             </Typography>
           </CardContent>
         </Card>
       ))}
+
+      <Dialog open={openDialog} onClose={handleClose}  maxWidth="xs" fullWidth sx={{ backgroundColor: '' }}>
+        {selectedCard && (
+          <>
+           <DialogTitle sx={{ backgroundColor: '#3B82F6', marginBottom: '18px', color: 'white' }}>{selectedCard.title}</DialogTitle>
+           <DialogContent>
+          {selectedCard.description}
+           </DialogContent>
+          </>
+        )}
+      </Dialog>
+
     </div>
   );
 }

@@ -90,43 +90,69 @@ const CalendarView = () => {
       </Box>
 
       {/* Modal for adding events */}
-      <Dialog open={modalOpen} onClose={handleClose}>
-        <DialogTitle className="font-bold text-[#3B82F6]">Add New Event</DialogTitle>
-        <DialogContent className="flex flex-col space-y-4">
+      <Dialog open={modalOpen} onClose={handleClose} maxWidth="xs" fullWidth>
+        <DialogTitle className="font-bold text-white my-2" sx={{backgroundColor:'#3B82F6'}}>Add New Event</DialogTitle>
+        <DialogContent className="flex flex-col">
+        <div className='mt-4 mb-2'>
+        <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Enter event name*</Typography>
           <TextField
-            label="Event Name"
+            placeholder="Event name"
             variant="outlined"
             fullWidth
             value={newEvent.title}
             onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
           />
+          </div>
+
+          <div className='mt-4 mb-2'>
+          <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Enter event description*</Typography>
           <TextField
-            label="Start Time"
-            type="datetime-local"
+            placeholder="Event Description"
+            variant="outlined"
+            fullWidth
+            value={newEvent.title}
+            onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
+          />
+          </div>
+
+          <div className='mt-4 mb-2'>
+          <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Start from*</Typography>
+          <TextField
+            
+            type="time"
             fullWidth
             InputLabelProps={{ shrink: true }}
             value={moment(newEvent.start).format("YYYY-MM-DDTHH:mm")}
             onChange={(e) => setNewEvent({ ...newEvent, start: new Date(e.target.value) })}
           />
+          </div>
+          <div className='mt-4 mb-2'>
+          <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Till to*</Typography>
           <TextField
-            label="End Time"
-            type="datetime-local"
+            
+            type="time"
             fullWidth
             InputLabelProps={{ shrink: true }}
             value={moment(newEvent.end).format("YYYY-MM-DDTHH:mm")}
             onChange={(e) => setNewEvent({ ...newEvent, end: new Date(e.target.value) })}
           />
+          </div>
+          <div className='mt-4 mb-2'>
+          <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Enter event location*</Typography>
           <RadioGroup
             value={newEvent.locationType}
             onChange={(e) => setNewEvent({ ...newEvent, locationType: e.target.value, location: "" })}
+            sx={{display:'flex',flexDirection:'row'}}
           >
             <FormControlLabel value="online" control={<Radio />} label="Online" />
             <FormControlLabel value="inperson" control={<Radio />} label="In Person" />
           </RadioGroup>
+          </div>
           {newEvent.locationType === "inperson" && (
+            <div className='mt-4 mb-2'>
+              <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Select room*</Typography>
             <TextField
               select
-              label="Room"
               fullWidth
               value={newEvent.location}
               onChange={(e) => setNewEvent({ ...newEvent, location: e.target.value })}
@@ -137,14 +163,15 @@ const CalendarView = () => {
                 </MenuItem>
               ))}
             </TextField>
+            </div>
           )}
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} variant="outlined" color="error">
+          <Button onClick={handleClose} variant="outlined" sx={{backgroundColor:''}}>
             Cancel
           </Button>
-          <Button onClick={handleSubmit} variant="contained" className="bg-[#3B82F6] text-white">
-            Submit
+          <Button onClick={handleSubmit} variant="contained" sx={{backgroundColor:'#3B82F6'}}>
+            Create
           </Button>
         </DialogActions>
       </Dialog>

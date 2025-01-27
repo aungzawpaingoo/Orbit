@@ -326,93 +326,6 @@ const CustomAppBar = ({ setProjects }) => {
         </Toolbar>
       </AppBar>
 
-      {/* <Dialog open={open} onClose={handleModalClose} maxWidth="md" fullWidth sx={{ backgroundColor: '' }}>
-
-        <DialogTitle sx={{ backgroundColor: '#3B82F6', marginBottom: '18px', color: 'white' }}>Create new project</DialogTitle>
-
-        <DialogContent>
-          
-          <div className='my-4'>
-          <Typography variant='body2'>Select Assigned User*</Typography>
-            <TextField
-              label="Project Name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              sx={{ width: '250px'}}
-              margin="normal"
-            />
-          </div>
-          <div className='my-4'>
-          <Typography variant='body2'>Select Assigned User*</Typography>
-            <TextField
-              label="Key"
-              name="key"
-              value={formData.key}
-              onChange={handleChange}
-              sx={{ width: '250px'}}
-              margin="normal"
-            />
-          </div>
-          <div className='my-4'>
-          <Typography variant='body2'>Select Assigned User*</Typography>
-            <TextField
-              label="Type"
-              name="type"
-              value={formData.type}
-              onChange={handleChange}
-              sx={{ width: '250px'}}
-              margin="normal"
-            />
-          </div>
-          <div className='my-4'>
-            <Box mt={2}>
-              <Typography variant='body2'>Select Assigned User*</Typography>
-              <Select
-                value={users.find((user) => user.name === formData.assigned.name)?.id || ''}
-                onChange={handleUserSelect}
-                sx={{ width: '250px'}}
-                displayEmpty
-                MenuProps={{
-                  PaperProps: {
-                    style: {
-                      maxHeight: 200,
-                    },
-                  },
-                }}
-              >
-                <MenuItem value="" disabled>
-                  Select a user
-                </MenuItem>
-                {users.map((user) => (
-                  <MenuItem key={user.id} value={user.id}>
-                    <Box display="flex" alignItems="center">
-                      <Avatar src={user.avatar} alt={user.name} sx={{ mr: 1, width: 24, height: 24 }} />
-                      {user.name}
-                    </Box>
-                  </MenuItem>
-                ))}
-              </Select>
-            </Box>
-          </div>
-          
-
-          <Box mt={4}>
-          <Typography variant='body2'>Select Assigned User*</Typography>
-            <input type='file' accept='image/*' onChange={handleImageChange} style={{marginTop:'10px'}}/>
-            {formData.image && <img src={`data:image/png;base64,${formData.image}`} alt="Project" className='w-100px' />}
-          </Box>
-          
-        </DialogContent>
-        <DialogActions>
-          <Button variant="outlined" onClick={handleModalClose}>
-            Cancel
-          </Button>
-          <Button variant="contained" color="primary" onClick={handleFormSubmit}>
-            Submit
-          </Button>
-        </DialogActions>
-      </Dialog> */}
 
 <Dialog open={open} onClose={handleModalClose} maxWidth="md" fullWidth>
   <DialogTitle sx={{ backgroundColor: '#3B82F6', marginBottom: '18px', color: 'white' }}>
@@ -422,8 +335,8 @@ const CustomAppBar = ({ setProjects }) => {
   <DialogContent>
     <Grid container spacing={2}>
       <Grid item xs={12} sm={6}>
-        <div className='my-4'>
-          <Typography variant='body2'>Select Assigned User*</Typography>
+        <div className='my-1'>
+          <Typography variant='body2'>Enter project name*</Typography>
           <TextField
             label="Project Name"
             name="name"
@@ -435,8 +348,8 @@ const CustomAppBar = ({ setProjects }) => {
         </div>
       </Grid>
       <Grid item xs={12} sm={6}>
-        <div className='my-4'>
-          <Typography variant='body2'>Select Assigned User*</Typography>
+        <div className='my-1'>
+          <Typography variant='body2'>Enter unique key for project*</Typography>
           <TextField
             label="Key"
             name="key"
@@ -447,9 +360,38 @@ const CustomAppBar = ({ setProjects }) => {
           />
         </div>
       </Grid>
+
       <Grid item xs={12} sm={6}>
-        <div className='my-4'>
-          <Typography variant='body2'>Select Assigned User*</Typography>
+        <div className='my-1'>
+          <Typography variant='body2'>Select project start date*</Typography>
+          <TextField
+            name="startDate"
+            type='date'
+            value={formData.type}
+            onChange={handleChange}
+            sx={{ width: '100%' }}
+            margin="normal"
+          />
+        </div>
+      </Grid>
+
+      <Grid item xs={12} sm={6}>
+        <div className='my-1'>
+          <Typography variant='body2'>Select project end date*</Typography>
+          <TextField
+            name="endDate"
+            type='date'
+            value={formData.type}
+            onChange={handleChange}
+            sx={{ width: '100%' }}
+            margin="normal"
+          />
+        </div>
+      </Grid>
+
+      <Grid item xs={12} sm={6}>
+        <div className='my-1'>
+          <Typography variant='body2'>Enter project type*</Typography>
           <TextField
             label="Type"
             name="type"
@@ -460,8 +402,9 @@ const CustomAppBar = ({ setProjects }) => {
           />
         </div>
       </Grid>
+
       <Grid item xs={12} sm={6}>
-        <div className='my-6'>
+        <div className='my-3'>
           <Typography variant='body2'>Select Assigned User*</Typography>
           <Select
             value={users.find((user) => user.name === formData.assigned.name)?.id || ''}

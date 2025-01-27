@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Sidebar from '../components/Sidebar';
 import TitleBreadCrump from '../components/AppComponents/CommonComp/TitleBreadCrump';
 import { useProject } from '../data/Context/ProjectContext';
@@ -9,6 +9,11 @@ import { Typography } from '@mui/material';
 
 const Activesprint = () => {
   const { project } = useProject();
+  const projectId = project?._id;
+
+  useEffect(() => {
+      console.log('Project:', projectId);
+    }, [projectId]);
 
   return (
     <div className="flex h-screen">
@@ -31,7 +36,7 @@ const Activesprint = () => {
 
         {/* Container for BacklogDataTable with specific height and scrolling */}
         <div className="overflow-y-auto max-h-[650px]"> {/* Adjust max-h as needed */}
-          <DragandDropView/>
+          <DragandDropView projectId={projectId}/>
         </div>
       </div>
     </div>

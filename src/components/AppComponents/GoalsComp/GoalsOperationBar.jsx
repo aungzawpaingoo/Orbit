@@ -1,4 +1,4 @@
-import { Avatar, Select, TextField, Box, Button, MenuItem, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel } from '@mui/material';
+import { Avatar, Select, TextField, Box, Button, MenuItem, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel, Typography } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import React, { useState } from 'react';
 
@@ -105,90 +105,57 @@ const GoalsOperationBar = ({ addTask }) => {
       </Button>
 
       {/* Modal for task creation */}
-      <Dialog open={openModal} onClose={handleCloseModal} maxWidth="sm" fullWidth>
-        <DialogTitle>Create Task</DialogTitle>
-        <DialogContent className="space-y-4">
-          {formError && (
-            <Box className="text-red-500 text-sm">{formError}</Box>
-          )}
+      <Dialog open={openModal} onClose={handleCloseModal} maxWidth="xs" fullWidth sx={{ backgroundColor: '' }}>
+         <DialogTitle sx={{ backgroundColor: '#3B82F6', marginBottom: '18px', color: 'white' }}>Create goal</DialogTitle>
+        <DialogContent className="flex flex-col ">
+        <div className='mt-2 mb-4'>
+            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Goal Title*</Typography>
+            <TextField
+              placeholder='Enter title of the goal you want to create'
+              color='black'
+              sx={{ width: '400px', height: '40px' }} />
+          </div>
 
-          <TextField
-            label="Task Name"
-            fullWidth
-            variant="outlined"
-            value={taskName}
-            onChange={(e) => setTaskName(e.target.value)}
-            required
-          />
+          <div className='mt-6 mb-4'>
+            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Goal Description*</Typography>
+            <TextField
+              placeholder='Enter description of the goal you want to create'
+              color='black'
+              sx={{ width: '400px', height: '40px' }} />
+          </div>
 
-          <FormControl fullWidth required>
-            <InputLabel>Priority</InputLabel>
-            <Select
-              value={priority}
-              onChange={(e) => setPriority(e.target.value)}
-              label="Priority"
-            >
-              <MenuItem value="Low">Low</MenuItem>
-              <MenuItem value="Medium">Medium</MenuItem>
-              <MenuItem value="High">High</MenuItem>
-            </Select>
-          </FormControl>
+          <div className='mt-6 mb-4'>
+            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Target Date*</Typography>
+            <TextField
+              type='date'
+              
+              color='black'
+              sx={{ width: '400px', height: '40px' }} />
+          </div>
 
-          <FormControl fullWidth required>
-            <InputLabel>Status</InputLabel>
-            <Select
-              value={status}
-              onChange={(e) => setStatus(e.target.value)}
-              label="Status"
-            >
-              <MenuItem value="Todo">Todo</MenuItem>
-              <MenuItem value="In Progress">In Progress</MenuItem>
-              <MenuItem value="Completed">Completed</MenuItem>
-            </Select>
-          </FormControl>
+          <div className='mt-6 mb-4'>
+            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Set Priority Level*</Typography>
+            <TextField
+              select
+              placeholder='Enter title of the backlog you want to create'
+              color='black'
+              sx={{ width: '400px', height: '40px' }} />
+          </div>
+          <Typography variant='body2' color='gray' sx={{ marginTop: '2px' }}>This is the initial priority upon creation</Typography>
 
-          <FormControl fullWidth required>
-            <InputLabel>Assignee</InputLabel>
-            <Select
-              value={assignee}
-              onChange={(e) => setAssignee(e.target.value)}
-              label="Assignee"
-            >
-              {assignees.map((person) => (
-                <MenuItem key={person.name} value={person.name}>
-                  <Avatar src={person.avatar} sx={{ width: 24, height: 24, marginRight: 1 }} />
-                  {person.name}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-
-          <TextField
-            label="Due Date"
-            type="date"
-            fullWidth
-            variant="outlined"
-            value={dueDate}
-            onChange={(e) => setDueDate(e.target.value)}
-            required
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
-
-          <TextField
-            label="Estimated Hours"
-            type="time"
-            fullWidth
-            variant="outlined"
-            value={estimatedHours}
-            onChange={(e) => setEstimatedHours(e.target.value)}
-            required
-          />
+          <div className='mt-6 mb-4'>
+            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Select Status*</Typography>
+            <TextField
+            select
+              placeholder='Enter title of the backlog you want to create'
+              color='black'
+              sx={{ width: '400px', height: '40px' }} />
+          </div>
+          <Typography variant='body2' color='gray' sx={{ marginTop: '2px' }}>This is the initial status upon creation</Typography>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCloseModal} color="secondary">Cancel</Button>
-          <Button onClick={handleFormSubmit} color="primary">Create</Button>
+          <Button onClick={handleCloseModal} variant='outlined' sx={{backgroundColor:''}}>Cancel</Button>
+          <Button onClick={handleFormSubmit} sx={{backgroundColor:'#3B82F6'}} variant='contained'>Create</Button>
         </DialogActions>
       </Dialog>
     </Box>

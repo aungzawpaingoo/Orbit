@@ -5,6 +5,28 @@ import { Check, CheckBox, FileUpload, FileUploadOutlined, Upload, UploadFile } f
 
 const BackLogOperationBar = () => {
   const [openModal, setOpenModal] = useState(false);
+  const [formValues, setFormValues] = useState({
+    
+    title: "",
+    description: "",
+    priority: "Low",
+    status: "To Do",
+    assignee: "",
+    estimatedEffort: "",
+    actualEffort: "",
+    acceptanceCriteria: "",
+    selectedLabels: [],
+  });
+
+  const handleChange = (field) => (event) => {
+    const value = field === "selectedLabels" ? event.target.value : event.target.value;
+    setFormValues((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleSubmit = () => {
+    onSubmit(formValues);
+    onClose();
+  };
 
   const selectStyle = {
     marginRight: '8px',
@@ -74,45 +96,23 @@ const BackLogOperationBar = () => {
 
           <Typography variant='body2' color='gray'>Required fields are marked with an asterisk *</Typography>
 
-          <div className='my-6'>
-            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Project*</Typography>
-            <Select
-              value={''}
+          <div className='my-8'>
+            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Backlog Title*</Typography>
+            <TextField
+              placeholder='Enter title of the backlog you want to create'
               color='black'
-              sx={{ width: '250px', height: '40px' }}
-              displayEmpty 
-              renderValue={(selected) => {
-                if (!selected) {
-                  return <span style={{ fontSize: "12px", color: "black" }}>Select Project</span>;
-                }
-                return selected;
-              }}>
-              <MenuItem value="" disabled>
-                Select Project
-              </MenuItem>
-            </Select>
+              sx={{ width: '400px', height: '40px' }} />
           </div>
 
-          <div className='my-6'>
-            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Task Type*</Typography>
-            <Select
-              value={''}
+          <div className='my-8'>
+            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Backlog Description*</Typography>
+            <TextField
+              placeholder='Enter description you want to create'
               color='black'
-              sx={{ width: '250px', height: '40px' }}
-              displayEmpty
-              renderValue={(selected) => {
-                if (!selected) {
-                  return <span style={{ fontSize: "12px", color: "black" }}>Select Type</span>;
-                }
-                return selected;
-              }}>
-              <MenuItem value="" disabled>
-                Select Project
-              </MenuItem>
-            </Select>
+              sx={{ width: '500px', height: '40px' }} />
           </div>
 
-          <div className='my-1'>
+          <div className='mt-12 mb-6'>
             <Divider />
           </div>
 
@@ -129,25 +129,32 @@ const BackLogOperationBar = () => {
                 return selected;
               }}>
               <MenuItem value="" disabled>
-                Select Project
+                Select Status
+              </MenuItem>
+            </Select>
+            <Typography variant='body2' color='gray' sx={{ marginTop: '2px' }}>This is the initial priority upon creation</Typography>
+          </div>
+
+          <div className='my-6'>
+            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Priority*</Typography>
+            <Select
+              value={''}
+              color='black'
+              sx={{ width: '250px', height: '40px' }} displayEmpty
+              renderValue={(selected) => {
+                if (!selected) {
+                  return <span style={{ fontSize: "12px", color: "black" }}>Select Priority</span>;
+                }
+                return selected;
+              }}>
+              <MenuItem value="" disabled>
+                Select Priority
               </MenuItem>
             </Select>
             <Typography variant='body2' color='gray' sx={{ marginTop: '2px' }}>This is the initial status upon creation</Typography>
           </div>
 
-          <div className='my-6'>
-            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Summary*</Typography>
-            <TextField
-              placeholder='Summary of the task you want to create'
-              color='black'
-              sx={{ width: '500px', height: '40px' }} />
-          </div>
-
-          <div className='my-10'>
-            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Description</Typography>
-            <TextField 
-            placeholder='Short Description of the task you want to create' inputMode='text' multiline sx={{ width: '800px' }} />
-          </div>
+         
 
           <div className='my-6'>
             <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Assignee</Typography>
@@ -162,7 +169,7 @@ const BackLogOperationBar = () => {
                 return selected;
               }}>
               <MenuItem value="" disabled>
-                Select Project
+                Select Assignee
               </MenuItem>
             </Select>
             <Button variant='text' size='medium' color='primary' sx={{ marginTop: '2px', textTransform: 'none' }}>Assigned To Me</Button>
@@ -181,30 +188,30 @@ const BackLogOperationBar = () => {
                 return selected;
               }}>
               <MenuItem value="" disabled>
-                Select Project
+                Select Labels
               </MenuItem>
             </Select>
           </div>
 
-          <div className='my-6'>
-            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Parent</Typography>
-            <Select
-              value={''}
-              color='black'
-              sx={{ width: '250px', height: '40px' }} displayEmpty
-              renderValue={(selected) => {
-                if (!selected) {
-                  return <span style={{ fontSize: "12px", color: "black" }}>Select Parent</span>;
-                }
-                return selected;
-              }}>
-              <MenuItem value="" disabled>
-                Select Project
-              </MenuItem>
-            </Select>
-            <Typography variant='body2' color='gray' sx={{ marginTop: '2px' }}>
-              Your issue type hierarchy determines the issues you can select here.</Typography>
+          <div className='my-8'>
+            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Estimated Effort Time From</Typography>
+            <TextField
+            placeholder='Estimated Effort'
+            type='time'
+            sx={{ width: '250px', height: '40px' }}/>
+           
           </div>
+
+          <div className='my-8'>
+            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Estimated Effort Time To</Typography>
+            <TextField
+            placeholder='Estimated Effort'
+            type='time'
+            sx={{ width: '250px', height: '40px' }}/>
+            
+          </div>
+
+
 
           <div className='my-6'>
             <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Team</Typography>
@@ -265,69 +272,7 @@ const BackLogOperationBar = () => {
           </div>
 
 
-          <div className='my-6'>
-            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Linked Issues</Typography>
-            <div className='flex flex-col'>
-              <Select
-                value={''}
-                color='black'
-                sx={{ width: '250px', height: '40px', marginTop: '4px', marginBottom: '10px' }} displayEmpty
-                renderValue={(selected) => {
-                  if (!selected) {
-                    return <span style={{ fontSize: "12px", color: "black" }}>Select Linked Issues 1</span>;
-                  }
-                  return selected;
-                }}>
-                <MenuItem value="" disabled>
-                  Select Project
-                </MenuItem>
-              </Select>
-              <Select
-                value={''}
-                color='black'
-                sx={{ width: '250px', height: '40px', marginTop: '4px', marginBottom: '10px' }} displayEmpty
-                renderValue={(selected) => {
-                  if (!selected) {
-                    return <span style={{ fontSize: "12px", color: "black" }}>Select Linked Issues 2</span>;
-                  }
-                  return selected;
-                }}>
-                <MenuItem value="" disabled>
-                  Select Project
-                </MenuItem>
-              </Select>
-            </div>
-
-          </div>
-
-          <div className='my-6'>
-            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Restrict to</Typography>
-            <Select
-              value={''}
-              color='black'
-              sx={{ width: '250px', height: '40px' }} displayEmpty
-              renderValue={(selected) => {
-                if (!selected) {
-                  return <span style={{ fontSize: "12px", color: "black" }}>Select Restriction</span>;
-                }
-                return selected;
-              }}>
-              <MenuItem value="" disabled >
-                Select Project
-              </MenuItem>
-            </Select>
-
-          </div>
-
-
-          <div className='my-6'>
-            <Typography variant='body2' sx={{ color: 'black', marginBottom: '6px' }}>Flagged</Typography>
-            <div className='flex items-center'>
-              <Checkbox />
-              <Typography variant='body2'>Impediment</Typography>
-            </div>
-            <Typography variant='caption' color='gray'>Allows to flag tasks with impediments.</Typography>
-          </div>
+        
 
 
 

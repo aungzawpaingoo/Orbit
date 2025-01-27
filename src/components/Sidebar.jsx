@@ -76,8 +76,10 @@ const Sidebar = () => {
 <div className="py-5 mb-4 flex items-center justify-start bg-white w-full px-3 shadow-sm border-t border-gray-200">
   <img src={project.image} alt="Logo" className="w-11 h-11 object-cover rounded-md border-2" />
   <div className="pl-2">
-    <h4 className="font-medium text-xs mb-1">{project.name}</h4>
-    <h5 className="font-normal text-xs text-gray-500">{project.type}</h5>
+    {/* <h4 className="font-medium text-xs mb-1">{project.name}</h4>
+    <h5 className="font-normal text-xs text-gray-500">{project.type}</h5> */}
+    <Typography sx={{fontWeight:'bold', fontSize:'11.5px'}}>{project.name}</Typography>
+    <Typography variant='caption' color='#3B82F6'>{project.type}</Typography>
   </div>
 </div>
 
@@ -90,12 +92,13 @@ const Sidebar = () => {
               key={item.id}
               to={item.href}
               className={({ isActive }) =>
-                `flex items-start gap-6 px-16 py-3 w-full ${isActive ? 'bg-blue-50 rounded-sm font-normal text-blue-500' : 'hover:bg-white'
+                `flex items-center gap-6 px-16 py-3 w-full ${isActive ? 'bg-blue-50 rounded-sm font-normal text-blue-500' : 'hover:bg-white'
                 }`
               }
             >
               {item.icon}
-              <span className="text-sm">{item.label}</span>
+              {/* <span className="text-sm">{item.label}</span> */}
+              <Typography sx={{fontSize:'12.5px'}}>{item.label}</Typography>
             </NavLink>
           ))}
         </div>

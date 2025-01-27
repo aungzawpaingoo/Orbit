@@ -1,30 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { Box, Typography, Paper, Card, CardContent, Grid } from '@mui/material';
+import axios from 'axios';
+
 import todoImg from '../../../assets/icons8-bookmark-480 (1).png';
 import pendingImg from '../../../assets/pending.png';
 import inProgressImg from '../../../assets/arrow-progress.png';
 import completedImg from '../../../assets/clipboard-check.png';
+import apiClient from '../../../api/apiClient';
 
-const DragandDropView = () => {
+const DragandDropView = ({ projectId }) => {
   const [columns, setColumns] = useState({
-    ToDo: [
-      { task: 'Design the UI', details: 'Create a responsive UI .....', date: '2025-01-05' },
-      { task: 'Set up backend', details: 'Create API routes and .....', date: '2025-01-07' },
-    ],
-    InProgress: [
-      { task: 'Develop features', details: 'Develop authentication and .....', date: '2025-01-03' },
-      { task: 'Integrate API', details: 'Connect frontend to backend .....', date: '2025-01-04' },
-    ],
-    Review: [
-      { task: 'Code review', details: 'Review pull request for .....', date: '2025-01-02' },
-    ],
-    Done: [
-      { task: 'Deploy to production', details: 'Deploy app to AWS .....', date: '2025-01-01' },
-      { task: 'Team meeting', details: 'Discuss upcoming .....', date: '2025-01-01' },
-    ],
+    ToDo: [],
+    InProgress: [],
+    Review: [],
+    Done: [],
   });
+
+  useEffect(() => {
+    const fetchSprints = async () => {
+      try {
+        const response = await apiClient.get(`/projects/${projectId}/activesprints`);
+        const sprints = response.data;
+
+        // Categorize sprints based on progress
+        const categorizedSprints = {
+          ToDo: sprints.filter((sprint) => sprint.progress === 0),
+          InProgress: sprints.filter((sprint) => sprint.progress > 0 && sprint.progress < 100),
+          Review: [], // Add logic if needed for review-specific sprints
+          Done: sprints.filter((sprint) => sprint.progress === 100),
+        };
+
+        setColumns(categorizedSprints);
+      } catch (error) {
+        console.error('Failed to fetch sprints:', error);
+      }
+    };
+
+    fetchSprints();
+  }, [projectId]);
 
   const handleDrop = (item, targetCol) => {
     const { fromCol, index } = item;
@@ -40,13 +55,11 @@ const DragandDropView = () => {
 
   return (
     <DndProvider backend={HTML5Backend}>
-     
       <Box sx={{ display: 'flex', gap: 2, marginTop: 4, backgroundColor: 'white', minHeight: '100vh', justifyContent: 'center' }}>
         {Object.keys(columns).map((col, colIndex) => (
           <Column key={colIndex} name={col} items={columns[col]} onDrop={(item) => handleDrop(item, col)} />
         ))}
       </Box>
-    
     </DndProvider>
   );
 };
@@ -92,19 +105,7 @@ const Column = ({ name, items, onDrop }) => {
         boxShadow: 'none',
       }}
     >
-      <Box
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          width: '100%',
-          marginBottom: 2,
-          position: 'sticky',
-          top: 0,
-          backgroundColor: 'white',
-          zIndex: 1,
-        }}
-      >
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', marginBottom: 2, position: 'sticky', top: 0, backgroundColor: 'white', zIndex: 1 }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <img
             src={columnImage}
@@ -116,45 +117,16 @@ const Column = ({ name, items, onDrop }) => {
               objectFit: 'cover',
             }}
           />
-          <Typography
-            variant="subtitle1"
-            sx={{
-              fontWeight: 700,
-              color: 'black',
-              textTransform: 'none',
-              letterSpacing: 1,
-              fontFamily: 'Roboto, sans-serif',
-            }}
-          >
+          <Typography variant="subtitle1" sx={{ fontWeight: 700, color: 'black', textTransform: 'none', letterSpacing: 1, fontFamily: 'Roboto, sans-serif' }}>
             {name}
           </Typography>
         </Box>
-        <Typography
-          variant="subtitle2"
-          color="textSecondary"
-          sx={{
-            fontSize: '12px',
-            fontWeight: 'bold',
-            fontFamily: 'Roboto, sans-serif',
-          }}
-        >
+        <Typography variant="subtitle2" color="textSecondary" sx={{ fontSize: '12px', fontWeight: 'bold', fontFamily: 'Roboto, sans-serif' }}>
           {items.length} Tasks
         </Typography>
       </Box>
 
-      <Box
-        sx={{
-          width: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 2,
-          alignItems: 'center',
-          maxHeight: 'calc(100vh - 180px)',
-          overflowY: 'auto',
-          paddingRight: '8px',
-          
-        }}
-      >
+      <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 2, alignItems: 'center', maxHeight: 'calc(100vh - 180px)', overflowY: 'auto', paddingRight: '8px' }}>
         {items.map((item, index) => (
           <DraggableItem key={index} item={item} index={index} fromCol={name} />
         ))}
@@ -166,26 +138,8 @@ const Column = ({ name, items, onDrop }) => {
 const DraggableItem = ({ item, index, fromCol }) => {
   const [, drag] = useDrag({
     type: 'ITEM',
-    item: { task: item.task, index, fromCol },
+    item: { task: item.sprintName, index, fromCol },
   });
-
-  let taskImage;
-  switch (fromCol) {
-    case 'ToDo':
-      taskImage = todoImg;
-      break;
-    case 'InProgress':
-      taskImage = inProgressImg;
-      break;
-    case 'Review':
-      taskImage = pendingImg;
-      break;
-    case 'Done':
-      taskImage = completedImg;
-      break;
-    default:
-      taskImage = todoImg;
-  }
 
   return (
     <Card
@@ -207,42 +161,12 @@ const DraggableItem = ({ item, index, fromCol }) => {
       <CardContent sx={{ padding: 3 }}>
         <Grid container spacing={2} alignItems="center">
           <Grid item>
-            <img
-              src={taskImage}
-              alt="status"
-              style={{
-                width: '20px',
-                height: '20px',
-                borderRadius: '2px',
-                objectFit: 'contain',
-              }}
-            />
-          </Grid>
-          <Grid item xs={8}>
-            <Typography
-              variant="body2"
-              sx={{
-                fontWeight: 500,
-                color: 'black',
-                fontFamily: 'Roboto, sans-serif',
-                fontSize: '13px',
-              }}
-            >
-              {item.task}
+            <Typography variant="body2" sx={{ fontWeight: 500, color: 'black', fontFamily: 'Roboto, sans-serif', fontSize: '13px' }}>
+              {item.sprintName}
             </Typography>
-           
-            <Typography
-              variant="body2"
-              color="textSecondary"
-              sx={{
-                fontSize: '12px',
-                fontFamily: 'Roboto, sans-serif',
-              }}
-            >
-              {item.details}
+            <Typography variant="body2" color="textSecondary" sx={{ fontSize: '12px', fontFamily: 'Roboto, sans-serif' }}>
+              {item.description}
             </Typography>
-
-
           </Grid>
         </Grid>
       </CardContent>
@@ -251,3 +175,5 @@ const DraggableItem = ({ item, index, fromCol }) => {
 };
 
 export default DragandDropView;
+
+

@@ -61,7 +61,6 @@
 //     };
 
 //     try {
-//       const response = await axios.post('http://localhost:5000/api/projects', projectData);
 //       alert('Project Created Successfully');
 //       console.log('Response:', response.data);
 //       setFormValues({
@@ -235,9 +234,14 @@ const Projects = () => {
 
         <div className='mt-3 mb-3'>
 
-          <h1 className='font-bold text-2xl font-sans mb-2'>Welcome back, {user?.displayName}</h1>
+          
+          <div className='mb-2'>
+          <Typography variant='h5' sx={{fontWeight:'bold'}}>Welcome back, {user?.displayName}</Typography>
+          </div>
 
-          <h2 className='font-normal ml-1 text-sm font-sans'>What would you like to do with your projects today!</h2>
+          <div className='ml-1'>
+          <Typography variant='body2'>What would you like to do with your projects today!</Typography>
+            </div>
 
         </div>
 
