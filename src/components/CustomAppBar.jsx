@@ -36,10 +36,10 @@ const CustomAppBar = ({ setProjects }) => {
   });
 
   const users = [
-    { id: '1', name: 'John Doe', avatar: 'https://via.placeholder.com/40' },
-    { id: '2', name: 'Jane Smith', avatar: 'https://via.placeholder.com/40' },
-    { id: '3', name: 'Alice Johnson', avatar: 'https://via.placeholder.com/40' },
-    { id: '4', name: 'Zaw Paing', avatar: 'https://via.placeholder.com/40' },
+    { id: '1', name: 'John Doe', avatar: 'https://www.corporatephotographerslondon.com/wp-content/uploads/2023/02/LinkedIn_Profile_Photo.jpg' },
+    { id: '2', name: 'Jane Smith', avatar: 'https://i.pinimg.com/736x/b4/af/e8/b4afe84cd0bbb8ac1747e569221161a4.jpg' },
+    { id: '3', name: 'Alice Johnson', avatar: 'https://www.whiteroomstudio.com.sg/wordpress/wp-content/uploads/2021/10/professional-headshot-photography-linkedin-singapore-5.jpeg' },
+    { id: '4', name: 'Clark', avatar: 'https://headshots-inc.com/wp-content/uploads/2021/01/FINAL-Blog-Images.jpg' },
   ];
 
   const handleModalOpen = () => {
