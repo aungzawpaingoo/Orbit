@@ -33,7 +33,7 @@ const Projects = () => {
           </div>
 
           <div className='ml-1'>
-          <Typography variant='body2'>What would you like to do with your projects today!</Typography>
+          <Typography variant='body2' sx={{color:'gray'}}>What would you like to do with your projects today!</Typography>
             </div>
 
         </div>

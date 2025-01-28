@@ -113,11 +113,12 @@ const ProjectTable = () => {
                     src={getImageUrl(project.image)}
                     alt={project.name}
                     style={{
-                      height: '28px',
-                      width: '28px',
+                      height: '40px',
+                      width: '40px',
                       borderRadius: '3px',
                       border: '1px solid lightgray',
                       objectFit: 'cover',
+                      imageResolution:'initial'
                     }}
                   />
                   <Typography variant="body2" fontWeight="semibold" sx={{ color: '#3B82F6' }}>
@@ -137,7 +138,7 @@ const ProjectTable = () => {
               </TableCell>
               <TableCell sx={{ padding: '8px 16px', borderBottom: 'none' }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                  <Avatar src={project.assigned.avatar} alt={project.assigned.name} sx={{ width: '24px', height: '24px' }} />
+                  <Avatar src={project.assigned.avatar} alt={project.assigned.name} sx={{ width: '30px', height: '30px', objectFit:'cover' }} />
                   <Typography variant="body2" sx={{ color: 'black' }}>
                     {project.assigned.name}
                   </Typography>
