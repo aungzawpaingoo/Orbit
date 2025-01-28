@@ -21,6 +21,8 @@ import { getAuth, signOut } from 'firebase/auth';
 import { UserContext } from '../data/Context/UserContext';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Button, Typography } from '@mui/material';
+import apiClient, {getImageUrl} from '../api/apiClient';
+
 
 
 library.add(faTableColumns, faRectangleList, faPersonRunning, faCalendarDays, faBullseye, faBug, faSignOutAlt,faFile,faFileInvoice);
@@ -74,7 +76,7 @@ const Sidebar = () => {
 </div>
 
 <div className="py-5 mb-4 flex items-center justify-start bg-white w-full px-3 shadow-sm border-t border-gray-200">
-  <img src={project.image} alt="Logo" className="w-11 h-11 object-cover rounded-md border-2" />
+  <img src={getImageUrl(project.image)} alt="Logo" className="w-11 h-11 object-cover rounded-md border-2" />
   <div className="pl-2">
     {/* <h4 className="font-medium text-xs mb-1">{project.name}</h4>
     <h5 className="font-normal text-xs text-gray-500">{project.type}</h5> */}

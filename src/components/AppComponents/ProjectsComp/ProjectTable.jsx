@@ -11,12 +11,13 @@ import {
   Box,
   Typography,
   CircularProgress,
+  Button,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useProject } from '../../../data/Context/ProjectContext';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import FolderOffIcon from '@mui/icons-material/FolderOff';
-import apiClient from '../../../api/apiClient';
+import apiClient, {getImageUrl} from '../../../api/apiClient';
 
 const ProjectTable = () => {
   const [projects, setProjects] = useState([]);
@@ -29,13 +30,14 @@ const ProjectTable = () => {
         const response = await apiClient.get('/projects');
         setProjects(response.data);
       } catch (error) {
+        console.log(error.message);
         setError(true);
       } finally {
         setLoading(false);
       }
     };
     fetchProjects();
-  }, []);
+  }, [projects]);
 
   const navigate = useNavigate();
   const { setProject } = useProject();
@@ -87,6 +89,7 @@ const ProjectTable = () => {
             <TableCell sx={{ color: 'black', fontWeight: 'semibold', fontSize: '13px', padding: '8px 16px' }}>Key</TableCell>
             <TableCell sx={{ color: 'black', fontWeight: 'semibold', fontSize: '13px', padding: '8px 16px' }}>Type</TableCell>
             <TableCell sx={{ color: 'black', fontWeight: 'semibold', fontSize: '13px', padding: '8px 16px' }}>Product Owner</TableCell>
+           
           </TableRow>
         </TableHead>
         <TableBody>
@@ -106,7 +109,8 @@ const ProjectTable = () => {
               <TableCell sx={{ padding: '8px 16px', borderBottom: 'none' }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
                   <img
-                    src={project.image}
+                    // src={project.image}
+                    src={getImageUrl(project.image)}
                     alt={project.name}
                     style={{
                       height: '28px',
@@ -139,6 +143,7 @@ const ProjectTable = () => {
                   </Typography>
                 </Box>
               </TableCell>
+              
             </TableRow>
           ))}
         </TableBody>
