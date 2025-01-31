@@ -116,7 +116,8 @@ const ProjectTable = () => {
                       height: '40px',
                       width: '40px',
                       borderRadius: '3px',
-                      border: '1px solid lightgray',
+                      border: '1px solid',
+                      borderColor:'#F8E7F6',
                       objectFit: 'cover',
                       imageResolution:'initial'
                     }}

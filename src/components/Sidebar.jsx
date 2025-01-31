@@ -76,7 +76,7 @@ const Sidebar = () => {
 </div>
 
 <div className="py-5 mb-4 flex items-center justify-start bg-white w-full px-3 shadow-sm border-t border-gray-200">
-  <img src={getImageUrl(project.image)} alt="Logo" className="w-11 h-11 object-cover rounded-md border-2" />
+  <img src={getImageUrl(project.image)} alt="Logo" className="w-11 h-11 object-cover rounded-md border border-gray-200" />
   <div className="pl-2">
     {/* <h4 className="font-medium text-xs mb-1">{project.name}</h4>
     <h5 className="font-normal text-xs text-gray-500">{project.type}</h5> */}

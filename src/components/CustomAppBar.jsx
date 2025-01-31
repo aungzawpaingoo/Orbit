@@ -33,6 +33,7 @@ const CustomAppBar = ({ setProjects }) => {
     endDate:'',
     assigned: { name: '', avatar: '' },
     image: '',
+    createdBy:'',
   });
 
   const users = [
@@ -65,6 +66,7 @@ const CustomAppBar = ({ setProjects }) => {
     endDate:'',
     assigned: { name: '', avatar: '' },
     image: '',
+    createdBy:'',
   };
 
 
@@ -130,9 +132,11 @@ const CustomAppBar = ({ setProjects }) => {
       data.append('startDate',new Date(formData.startDate).toISOString());
       data.append('endDate', new Date(formData.endDate).toISOString());
       data.append('assigned', JSON.stringify(formData.assigned));
-      if (formData.image?.file) {
-        data.append('image', formData.image.file); 
-      }
+      // if (formData.image?.file) {
+      //   data.append('image', formData.image.file); 
+      // }
+      data.append('image', formData.image.file);
+      data.append('createdBy', user?.email);
 console.log(formData);
       const response = await apiClient.post('projects', data);
       console.log('Project created:', response.data);
@@ -244,6 +248,7 @@ console.log(formData);
                 style={{ height: '18px', width: '18px' }}
               />
             </IconButton>
+            
             <IconButton onClick={handleMenuOpen}>
               <Avatar
                 alt="User Profile"
@@ -518,7 +523,7 @@ console.log(formData);
                           right: "8px",
                           backgroundColor: "white",
                           color: "black",
-                          boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
+                          boxShadow: "",
                           "&:hover": {
                             backgroundColor: "white",
                           },
