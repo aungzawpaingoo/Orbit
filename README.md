@@ -1,5 +1,5 @@
-![LogoWithTextAlign](https://github.com/user-attachments/assets/28717041-d449-480c-9a66-1a0460c1d5bf)
 
+![Screenshot 2025-02-17 110407](https://github.com/user-attachments/assets/1bd37153-2f5a-479a-ad83-898a1f2eddd2)
 
 
 # Orbit
