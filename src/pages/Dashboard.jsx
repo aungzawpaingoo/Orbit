@@ -2,7 +2,7 @@ import React from 'react';
 import Sidebar from '../components/Sidebar';
 import TitleBreadCrump from '../components/AppComponents/CommonComp/TitleBreadCrump';
 import ResponsiveGrid from '../components/AppComponents/DashboardComp/ResponsiveGrid';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { useProject } from '../data/Context/ProjectContext';
 import InAppBar from '../components/AppComponents/CommonComp/InAppBar';
 import { Typography } from '@mui/material';
@@ -10,6 +10,9 @@ import { Typography } from '@mui/material';
 const Dashboard = () => {
 
   const { project } = useProject();
+
+  const {projectId} = useParams();
+
 
 
   return (

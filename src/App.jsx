@@ -12,6 +12,7 @@ import Projects from './pages/Projects';
 import Goals from './pages/Goals';
 import Team from './pages/Team';
 import GiveFeedback from './pages/GiveFeedback';
+import SandboxEnv from './pages/SandbogEnv';
 import Backlog from './pages/Backlog';
 import Activesprint from './pages/Activesprint';
 import Calendar from './pages/Calendar';
@@ -203,15 +204,16 @@ const App = () => {
             <Route path="/projects" element={<ProtectedRoute><Projects /></ProtectedRoute>} />
             <Route path="/team" element={<ProtectedRoute><Team /></ProtectedRoute>} />
             <Route path="/feedback" element={<ProtectedRoute><GiveFeedback /></ProtectedRoute>} />
-            <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-            <Route path="/backlog" element={<ProtectedRoute><Backlog /></ProtectedRoute>} />
-            <Route path="/active-sprint" element={<ProtectedRoute><Activesprint /></ProtectedRoute>} />
-            <Route path="/calendar" element={<ProtectedRoute><Calendar /></ProtectedRoute>} />
-            <Route path="/goals" element={<ProtectedRoute><Goals /></ProtectedRoute>} />
-            <Route path="/issues" element={<ProtectedRoute><Issues /></ProtectedRoute>} />
-            <Route path="/forms" element={<ProtectedRoute><Forms/></ProtectedRoute>}/>
+            <Route path="/dashboard/:projectId" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+            <Route path="/backlog/:projectId" element={<ProtectedRoute><Backlog /></ProtectedRoute>} />
+            <Route path="/active-sprint/:projectId" element={<ProtectedRoute><Activesprint /></ProtectedRoute>} />
+            <Route path="/calendar/:projectId" element={<ProtectedRoute><Calendar /></ProtectedRoute>} />
+            <Route path="/goals/:projectId" element={<ProtectedRoute><Goals /></ProtectedRoute>} />
+            <Route path="/issues/:projectId" element={<ProtectedRoute><Issues /></ProtectedRoute>} />
+            <Route path="/forms/:projectId" element={<ProtectedRoute><Forms/></ProtectedRoute>}/>
             <Route path="/createProject"  element={<ProtectedRoute><CreateProject /></ProtectedRoute>} />
             <Route path="/projectSetup" element={<ProtectedRoute><ProjectSetup/></ProtectedRoute>}/>
+            <Route path="/sandbox" element={<ProtectedRoute><SandboxEnv/></ProtectedRoute>}/>
           </Routes>
         </div>
       </Router>

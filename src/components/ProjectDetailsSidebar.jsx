@@ -2,8 +2,17 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaTachometerAlt, FaProjectDiagram, FaBullseye, FaCogs, FaChartLine } from 'react-icons/fa';
 import { Drawer, List, ListItem, ListItemIcon, ListItemText, Divider } from '@mui/material';
+import { useProject } from '../data/Context/ProjectContext';
 
-const ProjectDetailsSidebar = () => (
+
+const ProjectDetailsSidebar = () => {
+
+  const {project} = useProject();
+console.log("Sidebar project:", project);
+  const projectId = project?._id;
+
+
+
   <Drawer
     variant="permanent"
     anchor="left"
@@ -24,7 +33,10 @@ const ProjectDetailsSidebar = () => (
       <Divider />
 
       {/* Dashboard */}
-      <ListItem button component={NavLink} to="/dashboard" style={({ isActive }) => ({
+      <ListItem button component={NavLink} 
+      // to="/dashboard" 
+       to={`/dashboard/${projectId}`}
+      style={({ isActive }) => ({
         backgroundColor: isActive ? 'rgba(0,0,0,0.1)' : 'transparent',
       })}>
         <ListItemIcon>
@@ -84,6 +96,6 @@ const ProjectDetailsSidebar = () => (
       </ListItem>
     </List>
   </Drawer>
-);
+};
 
 export default ProjectDetailsSidebar;

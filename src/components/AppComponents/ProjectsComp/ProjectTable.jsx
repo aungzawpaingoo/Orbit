@@ -19,7 +19,7 @@ import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import FolderOffIcon from '@mui/icons-material/FolderOff';
 import apiClient, {getImageUrl} from '../../../api/apiClient';
 
-const ProjectTable = () => {
+const ProjectTable = ({projectId}) => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -44,7 +44,8 @@ const ProjectTable = () => {
 
   const handleRowClick = (project) => {
     setProject(project);
-    navigate('/dashboard');
+    // navigate('/dashboard');
+     navigate(`/dashboard/${project._id}`);
   };
 
   if (loading) {

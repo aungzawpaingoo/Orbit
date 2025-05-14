@@ -19,6 +19,7 @@ import { getAuth, signOut } from 'firebase/auth';
 import apiClient from '../api/apiClient';
 import { Dialog, DialogActions, DialogContent, DialogTitle, Grid, Grid2, Modal, Select } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import { useNavigate } from 'react-router-dom';
 
 
 const CustomAppBar = ({ setProjects }) => {
@@ -153,6 +154,7 @@ console.log(formData);
     }
   };
 
+  const navigate = useNavigate();
 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -225,6 +227,8 @@ console.log(formData);
             >
               Create Project
             </Button>
+
+
             <IconButton color="inherit">
               <Badge badgeContent={4} color="error">
                 <img

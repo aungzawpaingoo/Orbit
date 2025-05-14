@@ -28,17 +28,21 @@ import apiClient, {getImageUrl} from '../api/apiClient';
 library.add(faTableColumns, faRectangleList, faPersonRunning, faCalendarDays, faBullseye, faBug, faSignOutAlt,faFile,faFileInvoice);
 
 const Sidebar = () => {
+
+    const {project} = useProject();
+  console.log("Sidebar project:", project);
+    const projectId = project?._id;
+
   const menuItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: <FontAwesomeIcon icon="fa-solid fa-table-columns" size="sm" />, href: '/dashboard' },
-    { id: 'backlog', label: 'Backlog', icon: <FontAwesomeIcon icon="fa-solid fa-rectangle-list" size="sm" />, href: '/backlog' },
-    { id: 'active-sprint', label: 'Sprints', icon: <FontAwesomeIcon icon="fa-solid fa-person-running" size="sm" />, href: '/active-sprint' },
-    { id: 'calendar', label: 'Calendar', icon: <FontAwesomeIcon icon="fa-solid fa-calendar-days" size="sm" />, href: '/calendar' },
-    { id: 'goals', label: 'Goals', icon: <FontAwesomeIcon icon="fa-solid fa-bullseye" size="sm" />, href: '/goals' },
-    { id: 'issues', label: 'Issues', icon: <FontAwesomeIcon icon="fa-solid fa-bug" size="sm" />, href: '/issues' },
-    { id: 'issues', label: 'Forms', icon: <FontAwesomeIcon icon="fa-solid fa-file-invoice" size="sm" />, href: '/forms' },
+    { id: 'dashboard', label: 'Dashboard', icon: <FontAwesomeIcon icon="fa-solid fa-table-columns" size="sm" />,  href: projectId ? `/dashboard/${projectId}` : '#' },
+    { id: 'backlog', label: 'Backlog', icon: <FontAwesomeIcon icon="fa-solid fa-rectangle-list" size="sm" />, href: projectId ? `/backlog/${projectId}`  : '#'},
+    { id: 'active-sprint', label: 'Sprints', icon: <FontAwesomeIcon icon="fa-solid fa-person-running" size="sm" />, href: projectId ? `/active-sprint/${projectId}`  : '#'},
+    { id: 'calendar', label: 'Calendar', icon: <FontAwesomeIcon icon="fa-solid fa-calendar-days" size="sm" />, href: projectId ? `/calendar/${projectId}`  : '#'},
+    { id: 'goals', label: 'Goals', icon: <FontAwesomeIcon icon="fa-solid fa-bullseye" size="sm" />, href: projectId ? `/goals/${projectId}`  : '#'},
+    { id: 'issues', label: 'Issues', icon: <FontAwesomeIcon icon="fa-solid fa-bug" size="sm" />, href: projectId ? `/issues/${projectId}` : '#' },
+    { id: 'issues', label: 'Forms', icon: <FontAwesomeIcon icon="fa-solid fa-file-invoice" size="sm" />, href: projectId ? `/forms/${projectId}` : '#' },
   ];
 
-  const { project } = useProject();
 
   const { user, setUser } = useContext(UserContext);
   const navigation = useNavigate();
@@ -71,7 +75,7 @@ const Sidebar = () => {
       padding: '2px 4px',
     }}
   >
-    ⬅️Back to Projects List
+    Back to Projects List
   </Button>
 </div>
 
